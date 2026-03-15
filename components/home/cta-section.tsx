@@ -10,7 +10,7 @@ export function CtaSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-20 lg:py-10 bg-dark-green">
+    <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
