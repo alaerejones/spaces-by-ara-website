@@ -68,7 +68,7 @@ export function Header() {
                 className={cn(
                   "text-base font-medium transition-colors hover:text-olive dark:hover:text-accent-lime",
                   pathname === link.href
-                    ? "text-olive dark:text-accent-lime"
+                    ? "text-accent-lime:text-olive dark"
                     : "text-foreground"
                 )}
               >
