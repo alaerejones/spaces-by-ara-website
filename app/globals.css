@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* Spaces by Ara Brand Colors */
+:root {
+  /* Brand Colors */
+  --olive: #1C2604;
+  --dark-green: #0A1E02;
+  --dark-moss: #566932;
+  --accent-lime: #CCFB6E;
+  --light-bg: #EAFFE8;
+  --text-primary: #0A1E02;
+  --text-secondary: #566932;
+  --divider: #E6EAE1;
+  
+  /* Light Mode */
+  --background: #ffffff;
+  --foreground: #0A1E02;
+  --card: #ffffff;
+  --card-foreground: #0A1E02;
+  --popover: #ffffff;
+  --popover-foreground: #0A1E02;
+  --primary: #1C2604;
+  --primary-foreground: #ffffff;
+  --secondary: #EAFFE8;
+  --secondary-foreground: #0A1E02;
+  --muted: #EAFFE8;
+  --muted-foreground: #566932;
+  --accent: #CCFB6E;
+  --accent-foreground: #0A1E02;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #E6EAE1;
+  --input: #E6EAE1;
+  --ring: #CCFB6E;
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Dark Mode */
+  --background: #0A1E02;
+  --foreground: #EAFFE8;
+  --card: #1C2604;
+  --card-foreground: #EAFFE8;
+  --popover: #1C2604;
+  --popover-foreground: #EAFFE8;
+  --primary: #CCFB6E;
+  --primary-foreground: #0A1E02;
+  --secondary: #1C2604;
+  --secondary-foreground: #EAFFE8;
+  --muted: #1C2604;
+  --muted-foreground: #9CB870;
+  --accent: #CCFB6E;
+  --accent-foreground: #0A1E02;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #566932;
+  --input: #566932;
+  --ring: #CCFB6E;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* Brand Colors - static values for Tailwind */
+  --color-olive: #1C2604;
+  --color-dark-green: #0A1E02;
+  --color-dark-moss: #566932;
+  --color-accent-lime: #CCFB6E;
+  --color-light-bg: #EAFFE8;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+.dark::-webkit-scrollbar {
+  width: 8px;
+}
+.dark::-webkit-scrollbar-track {
+  background: #1C2604;
+}
+.dark::-webkit-scrollbar-thumb {
+  background: #566932;
+  border-radius: 4px;
+}
+
+/* Section fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Button hover glow effect */
+.btn-glow:hover {
+  box-shadow: 0 0 2px rgba(204, 251, 110, 0.4);
+}
+
+/* Image hover scale */
+.img-hover-scale {
+  transition: transform 0.3s ease;
+}
+.img-hover-scale:hover {
+  transform: scale(1.02);
+}
