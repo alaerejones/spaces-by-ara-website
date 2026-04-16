@@ -18,7 +18,7 @@ export function ManagementHero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/property-owner.jpg"
-          alt="Property management services"
+          alt="facility management services"
           fill
           className="object-cover"
           priority
@@ -36,7 +36,7 @@ export function ManagementHero() {
           }`}
         >
           <h1 className="text-[25px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">
-            Professional residential property management.
+            Professional residential facility management.
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
             Spaces by Ara provides management services for residential buildings in Lagos. Our role is to ensure properties operate efficiently while maintaining strong tenant structure and facility oversight.

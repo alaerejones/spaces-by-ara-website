@@ -87,7 +87,7 @@ const faqCategories = [
       {
         question: "How do I start working with Spaces by Ara?",
         answer:
-          "Begin by scheduling a discovery call through our Property Management page. We will assess your property, discuss your management needs, and propose a customized management structure that aligns with your goals.",
+          "Begin by scheduling a discovery call through our facility management page. We will assess your property, discuss your management needs, and propose a customized management structure that aligns with your goals.",
       },
     ],
   },

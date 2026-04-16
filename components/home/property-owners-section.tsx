@@ -38,7 +38,7 @@ export function PropertyOwnersSection() {
             )}
           >
             <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-              Professional property management for residential buildings.
+              Professional facility management for residential buildings.
             </h2>
             <p className="text-md text-muted-foreground leading-relaxed mb-8">
               Spaces by Ara works with property owners and developers who want their residential buildings professionally managed. We handle tenant structure, occupancy, facility oversight, and daily management operations while ensuring properties remain in excellent condition.

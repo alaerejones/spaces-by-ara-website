@@ -21,7 +21,7 @@ export function AboutSection() {
           </h2>
           <div className="space-y-6 text-md text-muted-foreground leading-relaxed">
             <p>
-              Spaces by Ara is a property management company focused on improving how long term renting works in Nigeria.
+              Spaces by Ara is a facility management company focused on improving how long term renting works in Nigeria.
             </p>
             <p>
               We manage residential homes and structure them for people who earn monthly and want stable housing without the financial pressure of annual rent payments.

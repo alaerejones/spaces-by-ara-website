@@ -54,7 +54,7 @@ export function WhatWeHandle() {
             What we handle.
           </h2>
           <p className="text-md text-muted-foreground max-w-2xl mx-auto">
-            Comprehensive property management services that ensure your residential buildings operate smoothly.
+            Comprehensive facility management services that ensure your residential buildings operate smoothly.
           </p>
         </div>
 
