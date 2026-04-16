@@ -4,7 +4,7 @@ import { Instagram, Linkedin, Phone, Mail } from "lucide-react"
 
 const footerLinks = {
   services: [
-    { href: "/spaces", label: "Homes" },
+    { href: "/spaces", label: "Houses" },
     { href: "/invest", label: "Investors" },
     { href: "/partners", label: "Partners" },
     { href: "/management", label: "Property Owners" },
@@ -51,7 +51,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-5">
-              Professionally managed residential homes in Lagos with monthly payment structures.
+              Professionally managed residential Houses in Lagos with monthly payment structures.
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">

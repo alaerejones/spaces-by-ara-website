@@ -39,7 +39,7 @@ export function HowStructured() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%]">
-            How our homes are structured.
+            How our Houses are structured.
           </h2>
         </div>
 

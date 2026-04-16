@@ -40,7 +40,7 @@ export function PartnersSection() {
               Service partners we work with.
             </h2>
             <p className="text-md text-base text-muted-foreground leading-relaxed mb-6">
-              Spaces by Ara collaborates with trusted service providers who support the day to day operation of residential homes. We welcome partnerships with companies that maintain high professional standards.
+              Spaces by Ara collaborates with trusted service providers who support the day to day operation of residential Houses. We welcome partnerships with companies that maintain high professional standards.
             </p>
 
             <ul className="space-y-3 mb-6">

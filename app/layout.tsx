@@ -13,13 +13,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Spaces by Ara | Monthly Homes in Lagos',
-  description: 'Spaces by Ara provides professionally managed residential homes in Lagos designed for long term living with monthly payment structures.',
-  keywords: ['Lagos apartments', 'monthly rent Lagos', 'facility management Nigeria', 'shared apartments Lagos', 'residential homes Lagos'],
+  title: 'Spaces by Ara | Monthly Houses in Lagos',
+  description: 'Spaces by Ara provides professionally managed residential Houses in Lagos designed for long term living with monthly payment structures.',
+  keywords: ['Lagos apartments', 'monthly rent Lagos', 'facility management Nigeria', 'shared apartments Lagos', 'residential Houses Lagos'],
   authors: [{ name: 'Spaces by Ara' }],
   openGraph: {
-    title: 'Spaces by Ara | Monthly Homes in Lagos',
-    description: 'Professionally managed residential homes in Lagos designed for long term living with monthly payment structures.',
+    title: 'Spaces by Ara | Monthly Houses in Lagos',
+    description: 'Professionally managed residential Houses in Lagos designed for long term living with monthly payment structures.',
     type: 'website',
     locale: 'en_NG',
   },

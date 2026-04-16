@@ -37,7 +37,7 @@ export function FaqsHero() {
             Frequently Asked Questions
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed max-w-xl">
-            Find answers to common questions about Spaces by Ara homes, our monthly rent structure, and how our managed living works.
+            Find answers to common questions about Spaces by Ara Houses, our monthly rent structure, and how our managed living works.
           </p>
         </div>
       </div>

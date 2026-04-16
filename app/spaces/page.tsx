@@ -7,7 +7,7 @@ import { SpacesCta } from "@/components/spaces/spaces-cta"
 
 export const metadata: Metadata = {
   title: "Find a Home | Spaces by Ara",
-  description: "Find professionally managed residential homes in Lagos designed for monthly earners. Private rooms in shared apartments with structured living.",
+  description: "Find professionally managed residential Houses in Lagos designed for monthly earners. Private rooms in shared apartments with structured living.",
 }
 
 export default function SpacesPage() {

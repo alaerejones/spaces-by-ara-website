@@ -22,7 +22,7 @@ export function CtaSection() {
             Looking for a home in Lagos?
           </h2>
           <p className="text-md text-white/80 leading-relaxed mb-10">
-            Explore available Spaces by Ara homes and see how monthly structured living works.
+            Explore available Spaces by Ara Houses and see how monthly structured living works.
           </p>
           <Button
             asChild

@@ -24,7 +24,7 @@ export function AboutSection() {
               Spaces by Ara is a facility management company focused on improving how long term renting works in Nigeria.
             </p>
             <p>
-              We manage residential homes and structure them for people who earn monthly and want stable housing without the financial pressure of annual rent payments.
+              We manage residential Houses and structure them for people who earn monthly and want stable housing without the financial pressure of annual rent payments.
             </p>
             <p>
               Our team oversees tenant structure, facility maintenance, and operational management to ensure each home is safe, organized, and well maintained.

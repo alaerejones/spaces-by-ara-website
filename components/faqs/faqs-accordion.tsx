@@ -20,9 +20,9 @@ const faqCategories = [
           "Instead of paying a full year upfront, residents pay rent in a structure designed for monthly income earners. The exact payment terms are discussed during the application process based on the specific property and arrangement. This model is designed to reduce the financial pressure of traditional yearly rent payments in Lagos.",
       },
       {
-        question: "What type of homes are currently available?",
+        question: "What type of Houses are currently available?",
         answer:
-          "Our current homes are shared apartments where residents have their own private bedroom while sharing common areas like the kitchen and living room. All homes are located in secure residential neighborhoods across Lagos.",
+          "Our current Houses are shared apartments where residents have their own private bedroom while sharing common areas like the kitchen and living room. All Houses are located in secure residential neighborhoods across Lagos.",
       },
       {
         question: "How do I apply for a home?",
@@ -32,7 +32,7 @@ const faqCategories = [
       {
         question: "Are utilities included in the rent?",
         answer:
-          "Utility arrangements vary by property. Some homes include utilities in the rent while others have a separate utility structure. This information is clarified during the application process so you know exactly what to expect.",
+          "Utility arrangements vary by property. Some Houses include utilities in the rent while others have a separate utility structure. This information is clarified during the application process so you know exactly what to expect.",
       },
       {
         question: "What are the house rules?",

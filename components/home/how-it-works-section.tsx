@@ -10,19 +10,19 @@ const features = [
     icon: Calendar,
     title: "Monthly rent structure",
     description:
-      "Our homes are designed for people who earn monthly. Instead of paying a full year upfront, residents pay rent in a structure that fits their income flow.",
+      "Our Houses are designed for people who earn monthly. Instead of paying a full year upfront, residents pay rent in a structure that fits their income flow.",
   },
   {
     icon: Home,
     title: "Shared apartments today",
     description:
-      "Our current homes provide private rooms within shared apartments. Each resident has their own room while sharing living areas in well managed homes.",
+      "Our current Houses provide private rooms within shared apartments. Each resident has their own room while sharing living areas in well managed Houses.",
   },
   {
     icon: Settings,
     title: "More options coming",
     description:
-      "Additional housing options including full apartments and furnished units will be introduced as the network of Spaces by Ara homes grows.",
+      "Additional housing options including full apartments and furnished units will be introduced as the network of Spaces by Ara Houses grows.",
   },
 ]
 
