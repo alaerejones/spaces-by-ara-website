@@ -51,7 +51,7 @@ export function Footer() {
               />
             </Link>
             <p className="text-white/80 text-sm leading-relaxed mb-5">
-              Professionally managed residential Houses in Lagos with monthly payment structures.
+              Long Stay. Affordable Monthly Pay
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">

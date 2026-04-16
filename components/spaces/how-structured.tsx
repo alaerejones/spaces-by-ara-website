@@ -10,7 +10,7 @@ const structures = [
     icon: DoorOpen,
     title: "Private Rooms",
     description:
-      "Residents have their own private bedroom within a shared apartment. Each home includes a shared kitchen, living area, and essential facilities maintained by management.",
+      "Residents have their own private bedroom within a shared apartment. Each Apartment includes a shared kitchen, living area, and essential facilities maintained by management.",
   },
   {
     icon: Settings,

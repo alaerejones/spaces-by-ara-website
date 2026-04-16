@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "Who manages the properties?",
     answer:
-      "All Spaces by Ara Houses are professionally managed by our team. We handle maintenance, tenant coordination, house rules enforcement, and ensure each home operates smoothly.",
+      "All Spaces by Ara Houses are professionally managed by our team. We handle maintenance, tenant coordination, house rules enforcement, and ensure each apartment operates smoothly.",
   },
   {
     question: "How do I apply for a home?",
