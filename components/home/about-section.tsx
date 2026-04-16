@@ -27,7 +27,7 @@ export function AboutSection() {
               We manage residential Houses and structure them for people who earn monthly and want stable housing without the financial pressure of annual rent payments.
             </p>
             <p>
-              Our team oversees tenant structure, facility maintenance, and operational management to ensure each home is safe, organized, and well maintained.
+              Our team oversees tenant structure, facility maintenance, and operational management to ensure each apartment is safe, organized, and well maintained.
             </p>
           </div>
         </div>
