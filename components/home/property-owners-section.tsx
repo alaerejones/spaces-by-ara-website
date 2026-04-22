@@ -43,28 +43,13 @@ export function PropertyOwnersSection() {
             <p className="text-md text-muted-foreground leading-relaxed mb-8">
               Spaces by Ara works with property owners and developers who want their residential buildings professionally managed. We handle tenant structure, occupancy, facility oversight, and daily management operations while ensuring properties remain in excellent condition.
             </p>
-           <Button
-  asChild
-  size="lg"
-  className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
->
-  <a
-    href="#"
-    onClick={(e) => {
-      e.preventDefault()
-
-      if (typeof window !== "undefined" && (window as any).calendar) {
-        ;(window as any).calendar.schedulingButton.load({
-          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
-          color: "#CCFB6E",
-          label: "Book a Discovery Call",
-        })
-      }
-    }}
-  >
-    Book a Discovery Call
-  </a>
-</Button>
+            <Button
+              asChild
+              size="lg"
+              className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
+            >
+              <Link href="/management">Book a Discovery Call</Link>
+            </Button>
           </div>
         </div>
       </div>
