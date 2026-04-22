@@ -46,26 +46,13 @@ export function ManagementHero() {
   size="lg"
   className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
 >
- {/* Google Calendar Appointment Scheduling */}
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
-<Script
-  src="https://calendar.google.com/calendar/scheduling-button-script.js"
-  strategy="lazyOnload"
-  onLoad={() => {
-    if (typeof window !== 'undefined' && (window as any).calendar) {
-      const btn = document.getElementById('calendar-btn-target')
-      if (btn) {
-        ;(window as any).calendar.schedulingButton.load({
-          url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true',
-          color: '#CCFB6E',
-          label: 'Book a Discovery Call',
-          target: button,
-        })
-      }
-    }
-  }}
-/>
-<div id="calendar-btn-target" />
+  <a
+    href="https://calendar.app.google/h4MZ96LK9L5PWL8E8"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Book a Discovery Call
+  </a>
 </Button>
         </div>
       </div>
