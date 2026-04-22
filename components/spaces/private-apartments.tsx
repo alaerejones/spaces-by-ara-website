@@ -56,7 +56,7 @@ export function PrivateApartments() {
         className="py-20 lg:py-30 bg-muted/30"
       >
         <div className="container mx-auto px-4 lg:px-8">
-          
+
           {/* Header */}
           <div
             className={cn(
@@ -67,8 +67,9 @@ export function PrivateApartments() {
             <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold mb-5">
               Premium Private Apartments
             </h2>
-            <p className="text-md text-muted-foreground">
-              Our collection of luxury private apartments offers complete independence with world-class amenities.
+            <p className="text-md text-muted-foreground leading-relaxed">
+              Our collection of luxury private apartments offers complete
+              independence with world-class amenities.
             </p>
           </div>
 
@@ -85,6 +86,7 @@ export function PrivateApartments() {
                 )}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
+                {/* Video */}
                 <div className="relative h-56 overflow-hidden bg-black">
                   {apartment.videoUrl ? (
                     <iframe
@@ -104,20 +106,49 @@ export function PrivateApartments() {
                   )}
                 </div>
 
-                <div className="p-5">
-                  <h3 className="font-semibold text-lg mb-2">
-                    {apartment.name}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    {apartment.price}
+                {/* Content */}
+                <div className="p-5 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold text-lg">
+                      {apartment.name}
+                    </h3>
+                    <Badge>{apartment.badge}</Badge>
+                  </div>
+
+                  <p className="text-sm text-muted-foreground">
+                    {apartment.description}
                   </p>
 
-                  <Button
-                    className="w-full"
-                    onClick={() => handleBookingModalOpen(apartment.name)}
-                  >
-                    Book Now
-                  </Button>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    {apartment.features.map((feature, i) => (
+                      <li key={i}>• {feature}</li>
+                    ))}
+                  </ul>
+
+                  <div className="flex items-center justify-between pt-2">
+                    <span className="font-medium">{apartment.price}</span>
+                    <span className="text-xs text-green-600">
+                      {apartment.availability}
+                    </span>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-2 pt-3">
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => openEnquiryModal(apartment.name)}
+                    >
+                      Enquire
+                    </Button>
+
+                    <Button
+                      className="w-full"
+                      onClick={() => handleBookingModalOpen(apartment.name)}
+                    >
+                      Book
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
