@@ -46,7 +46,7 @@ export function ManagementHero() {
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
           >
-            <Link href="mailto:Operations@spacesbyara.com?subject=Discovery Call Request">
+            <Link href="https://calendar.app.google/h4MZ96LK9L5PWL8E8">
               Book a Discovery Call
             </Link>
           </Button>

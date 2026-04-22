@@ -48,7 +48,7 @@ export function PropertyOwnersSection() {
               size="lg"
               className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
             >
-              <Link href="/management">Book a Discovery Call</Link>
+              <Link href="https://calendar.app.google/h4MZ96LK9L5PWL8E8">Book a Discovery Call</Link>
             </Button>
           </div>
         </div>
