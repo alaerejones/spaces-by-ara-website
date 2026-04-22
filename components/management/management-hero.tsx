@@ -49,16 +49,33 @@ export function ManagementHero() {
   <a
     href="#"
     onClick={(e) => {
-      e.preventDefault()
+  e.preventDefault()
 
-      if (typeof window !== "undefined" && (window as any).calendar) {
-        ;(window as any).calendar.schedulingButton.load({
-          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
-          color: "#CCFB6E",
-          label: "Book a Discovery Call",
-        })
-      }
-    }}
+  const tryOpen = () => {
+    if ((window as any).calendar) {
+      ;(window as any).calendar.schedulingButton.load({
+        url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
+        color: "#CCFB6E",
+        label: "Book a Discovery Call",
+      })
+      return true
+    }
+    return false
+  }
+
+  // try immediately
+  if (tryOpen()) return
+
+  // retry until script loads
+  const interval = setInterval(() => {
+    if (tryOpen()) {
+      clearInterval(interval)
+    }
+  }, 200)
+
+  // safety stop after 5 seconds
+  setTimeout(() => clearInterval(interval), 5000)
+}}
   >
     Book a Discovery Call
   </a>
