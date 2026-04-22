@@ -29,8 +29,13 @@ function PasswordPrompt({
     setError('')
 
     try {
-      const correctPassword = process.env.NEXT_PUBLIC_DASHBOARD_PASSWORD || 'admin'
-      if (password === correctPassword) {
+      const response = await fetch('/api/check-password', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ password }),
+})
+const data = await response.json()
+if (data.correct) {
         sessionStorage.setItem('dashboardAuth', 'true')
         onSuccess()
       } else {
