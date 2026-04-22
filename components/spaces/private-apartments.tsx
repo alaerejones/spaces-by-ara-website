@@ -133,22 +133,22 @@ export function PrivateApartments() {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex gap-2 pt-3">
-                    <Button
-                      variant="outline"
-                      className="w-full"
-                      onClick={() => openEnquiryModal(apartment.name)}
-                    >
-                      Enquire
-                    </Button>
+                 <div className="flex flex-col gap-3 pt-3">
+  <Button
+    variant="outline"
+    className="w-full h-12"
+    onClick={() => openEnquiryModal(apartment.name)}
+  >
+    Enquire
+  </Button>
 
-                    <Button
-                      className="w-full"
-                      onClick={() => handleBookingModalOpen(apartment.name)}
-                    >
-                      Book
-                    </Button>
-                  </div>
+  <Button
+    className="w-full h-12"
+    onClick={() => handleBookingModalOpen(apartment.name)}
+  >
+    Book Now
+  </Button>
+</div>
                 </div>
               </div>
             ))}
