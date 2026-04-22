@@ -1,13 +1,14 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
+import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
 export function ManagementCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
+  const { openEnquiryModal } = useEnquiryModal()
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
@@ -25,13 +26,11 @@ export function ManagementCta() {
             Schedule a discovery call to discuss how Spaces by Ara can help manage your residential property.
           </p>
           <Button
-            asChild
+            onClick={() => openEnquiryModal({ enquiryType: "management" })}
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
           >
-            <Link href="mailto:management@spacesbyara.com?subject=Discovery Call Request">
-              Book a Discovery Call
-            </Link>
+            Book a Discovery Call
           </Button>
         </div>
       </div>
