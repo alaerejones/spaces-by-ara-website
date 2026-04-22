@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 import {
   Dialog,
   DialogContent,
@@ -50,30 +50,24 @@ export function PrivateApartments() {
 
   return (
     <>
-      <section
-        id="private-apartments"
-        ref={ref}
-        className="py-20 lg:py-30 bg-muted/30"
-      >
+      <section id="private-apartments" ref={ref} className="py-20 lg:py-30 bg-muted/30">
         <div className="container mx-auto px-4 lg:px-8">
-
-          {/* Header */}
           <div
             className={cn(
               "max-w-3xl mb-12 transition-all duration-700",
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold mb-5">
+            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
               Premium Private Apartments
             </h2>
             <p className="text-md text-muted-foreground leading-relaxed">
               Our collection of luxury private apartments offers complete
-              independence with world-class amenities.
+              independence with world-class amenities. Fully furnished, turnkey
+              solutions for discerning professionals and families.
             </p>
           </div>
 
-          {/* Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {privateApartmentsData.map((apartment, index) => (
               <div
@@ -86,7 +80,6 @@ export function PrivateApartments() {
                 )}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                {/* Video */}
                 <div className="relative h-56 overflow-hidden bg-black">
                   {apartment.videoUrl ? (
                     <iframe
@@ -98,62 +91,17 @@ export function PrivateApartments() {
                     />
                   ) : (
                     <Image
-                      src="/placeholder.jpg"
-                      alt={apartment.name}
+                      src={apartment.image}
+                      alt={`${apartment.type} in ${apartment.location}`}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                   )}
-                </div>
-
-                {/* Content */}
-                <div className="p-5 space-y-3 pb-10">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-lg">
-                      {apartment.name}
-                    </h3>
-                    <Badge>{apartment.badge}</Badge>
-                  </div>
-
-                  <p className="text-sm text-muted-foreground">
-                    {apartment.description}
-                  </p>
-
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    {apartment.features.map((feature, i) => (
-                      <li key={i}>• {feature}</li>
-                    ))}
-                  </ul>
-
-                  <div className="flex items-center justify-between pt-2">
-                    <span className="font-medium">{apartment.price}</span>
-                    <span className="text-xs text-green-600">
-                      {apartment.availability}
-                    </span>
-                  </div>
-
-                  {/* Actions */}
-                 <div className="flex flex-col gap-3 pt-3">
-  <Button
-    variant="outline"
-    className="w-full h-12"
-    onClick={() => openEnquiryModal(apartment.name)}
-  >
-    Enquire
-  </Button>
-
-  <Button
-    className="w-full h-12"
-    onClick={() => handleBookingModalOpen(apartment.name)}
-  >
-    Book Now
-  </Button>
-</div>
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -161,13 +109,14 @@ export function PrivateApartments() {
       <Dialog open={bookingModalOpen} onOpenChange={setBookingModalOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className="text-xl">
               {selectedProperty && `Book ${selectedProperty}`}
             </DialogTitle>
             <DialogClose />
           </DialogHeader>
 
           <div className="w-full mt-4">
+            <script src="https://www.bookingmood.com/js/resize.js"></script>
             <iframe
               src="https://www.bookingmood.com/embed/a307c975-c2cb-4a73-aa84-f3ec8b2e9eff?"
               style={{ width: "100%", border: "none", minHeight: "500px" }}
