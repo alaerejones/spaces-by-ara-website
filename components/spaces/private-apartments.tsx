@@ -1,6 +1,8 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
+import { MapPin } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
@@ -20,6 +22,8 @@ const privateApartmentsData = [
     name: "Ara's Premium 2 Bedroom Apartment",
     price: "₦2,100,000/month",
     location: "Lagos",
+    type: "Private Apartment",
+    image: "/images/apartment-3.jpg",
     badge: "Minimum 3 months",
     availability: "Available",
     description: "Experience luxury living with our premium 2-bedroom apartment.",
@@ -69,31 +73,64 @@ export function PrivateApartments() {
             </p>
           </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {privateApartmentsData.map((apartment, index) => (
-            <div
-              key={apartment.id}
-              className={cn(
-                "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
-                isInView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src={apartment.image}
-                  alt={`${apartment.type} in ${apartment.location}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-muted-foreground mb-3">
-                  <MapPin className="h-4 w-4" />
-                  <span className="text-sm">{apartment.location}</span>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {privateApartmentsData.map((apartment, index) => (
+              <div
+                key={apartment.id}
+                className={cn(
+                  "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                )}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={apartment.image}
+                    alt={`${apartment.type} in ${apartment.location}`}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <div className="flex items-center gap-2 text-muted-foreground mb-3">
+                    <MapPin className="h-4 w-4" />
+                    <span className="text-sm">{apartment.location}</span>
+                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Badge variant="secondary">{apartment.badge}</Badge>
+                    <Badge variant="outline" className="text-green-600 border-green-600">
+                      {apartment.availability}
+                    </Badge>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">{apartment.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-3">{apartment.description}</p>
+                  <ul className="text-sm text-muted-foreground mb-4 space-y-1">
+                    {apartment.features.map((feature) => (
+                      <li key={feature} className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="font-bold text-foreground mb-4">{apartment.price}</p>
+                  <div className="flex gap-2">
+                    <Button
+                      className="flex-1"
+                      onClick={() => handleBookingModalOpen(apartment.name)}
+                    >
+                      Book Now
+                    </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1"
+                      onClick={() => openEnquiryModal(apartment.name)}
+                    >
+                      Enquire
+                    </Button>
+                  </div>
                 </div>
               </div>
             ))}
@@ -112,7 +149,6 @@ export function PrivateApartments() {
           </DialogHeader>
 
           <div className="w-full mt-4">
-            <script src="https://www.bookingmood.com/js/resize.js"></script>
             <iframe
               src="https://www.bookingmood.com/embed/a307c975-c2cb-4a73-aa84-f3ec8b2e9eff?"
               style={{ width: "100%", border: "none", minHeight: "500px" }}
