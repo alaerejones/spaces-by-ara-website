@@ -26,10 +26,14 @@ export function WaitlistSection({
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    console.log("[v0] Waitlist signup:", email)
+    const response = await fetch('/api/waitlist', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, user_type: 'prospect' }),
+})
+if (!response.ok) {
+  console.error('Waitlist signup failed')
+}
 
     // Reset form
     setEmail("")
