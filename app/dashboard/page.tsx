@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { LogOut, Search, Download, ChevronDown, Plus } from 'lucide-react'
+import { LogOut, Search, Download, ChevronDown, Plus, Eye, EyeOff } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 // Password prompt component
@@ -20,6 +20,7 @@ function PasswordPrompt({
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [isChecking, setIsChecking] = useState(false)
+  const [showPassword, setShowPassword] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,17 +28,16 @@ function PasswordPrompt({
     setError('')
 
     try {
-      // Check password against environment variable (default: 'admin' if not set)
       const correctPassword = process.env.NEXT_PUBLIC_DASHBOARD_PASSWORD || 'admin'
       if (password === correctPassword) {
-        sessionStorage.setItem('dashboardPassword', password)
+        sessionStorage.setItem('dashboardAuth', 'true')
         onSuccess()
       } else {
-        setError('Incorrect password. Use environment variable NEXT_PUBLIC_DASHBOARD_PASSWORD or default "admin".')
+        setError('Incorrect password. Please try again.')
         onError()
       }
     } catch (err) {
-      setError('Error checking password')
+      setError('Something went wrong. Please try again.')
     } finally {
       setIsChecking(false)
     }
@@ -54,14 +54,25 @@ function PasswordPrompt({
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="password"
-              placeholder="Enter dashboard password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              disabled={isChecking}
-              autoFocus
-            />
+            <div className="relative">
+              <Input
+                type={showPassword ? 'text' : 'password'}
+                placeholder="Enter dashboard password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                disabled={isChecking}
+                autoFocus
+                className="pr-10"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                tabIndex={-1}
+              >
+                {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+              </button>
+            </div>
             {error && (
               <div className="text-sm text-red-500 bg-red-50 dark:bg-red-950 p-2 rounded">
                 {error}
@@ -165,7 +176,6 @@ function DashboardContent() {
   const [newNote, setNewNote] = useState('')
   const [contactedFilter, setContactedFilter] = useState<'all' | 'contacted' | 'not-contacted'>('all')
 
-  // Filter enquiries based on tab and search
   const filteredEnquiries = enquiries.filter((e) => {
     if (
       searchTerm &&
@@ -200,7 +210,6 @@ function DashboardContent() {
     }
   }
 
-  // Stats
   const stats = {
     totalEnquiries: enquiries.length,
     notContacted: enquiries.filter((e) => !e.contacted).length,
@@ -243,7 +252,7 @@ function DashboardContent() {
           <h1 className="text-2xl font-bold">Spaces by Ara — Admin</h1>
           <Button
             onClick={() => {
-              sessionStorage.removeItem('dashboardPassword')
+              sessionStorage.removeItem('dashboardAuth')
               window.location.reload()
             }}
             variant="ghost"
@@ -344,7 +353,6 @@ function DashboardContent() {
             <TabsTrigger value="waitlist">Waitlist</TabsTrigger>
           </TabsList>
 
-          {/* All / Filtered Enquiries */}
           <TabsContent value="all" className="space-y-4">
             {filteredEnquiries.length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
@@ -392,7 +400,6 @@ function DashboardContent() {
                       />
                     </div>
 
-                    {/* Expanded Details */}
                     {expandedId === enquiry.id && (
                       <div className="mt-6 pt-6 border-t space-y-4">
                         <div>
@@ -450,10 +457,7 @@ function DashboardContent() {
                             target="_blank"
                             rel="noopener noreferrer"
                           >
-                            <Button
-                              variant="outline"
-                              className="w-full"
-                            >
+                            <Button variant="outline" className="w-full">
                               WhatsApp
                             </Button>
                           </a>
@@ -466,10 +470,8 @@ function DashboardContent() {
             )}
           </TabsContent>
 
-          {/* Viewing Tab */}
           <TabsContent value="viewing" className="space-y-4">
-            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Viewing')).length ===
-            0 ? (
+            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Viewing')).length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
                 No viewing requests
               </Card>
@@ -484,9 +486,7 @@ function DashboardContent() {
                         <p className="text-sm text-muted-foreground">{enquiry.email}</p>
                         <p className="text-sm text-muted-foreground">{enquiry.whatsapp}</p>
                       </div>
-                      <Badge
-                        variant={enquiry.contacted ? 'secondary' : 'destructive'}
-                      >
+                      <Badge variant={enquiry.contacted ? 'secondary' : 'destructive'}>
                         {enquiry.contacted ? 'Contacted' : 'Pending'}
                       </Badge>
                     </div>
@@ -495,10 +495,8 @@ function DashboardContent() {
             )}
           </TabsContent>
 
-          {/* Investment Tab */}
           <TabsContent value="investment" className="space-y-4">
-            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Investment')).length ===
-            0 ? (
+            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Investment')).length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
                 No investment enquiries
               </Card>
@@ -513,9 +511,7 @@ function DashboardContent() {
                         <p className="text-sm text-muted-foreground">{enquiry.email}</p>
                         <p className="text-sm text-muted-foreground">{enquiry.whatsapp}</p>
                       </div>
-                      <Badge
-                        variant={enquiry.contacted ? 'secondary' : 'destructive'}
-                      >
+                      <Badge variant={enquiry.contacted ? 'secondary' : 'destructive'}>
                         {enquiry.contacted ? 'Contacted' : 'Pending'}
                       </Badge>
                     </div>
@@ -524,10 +520,8 @@ function DashboardContent() {
             )}
           </TabsContent>
 
-          {/* Booking Tab */}
           <TabsContent value="booking" className="space-y-4">
-            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Booking')).length ===
-            0 ? (
+            {filteredEnquiries.filter((e) => e.enquiry_type.includes('Booking')).length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
                 No booking requests
               </Card>
@@ -542,9 +536,7 @@ function DashboardContent() {
                         <p className="text-sm text-muted-foreground">{enquiry.email}</p>
                         <p className="text-sm text-muted-foreground">{enquiry.whatsapp}</p>
                       </div>
-                      <Badge
-                        variant={enquiry.contacted ? 'secondary' : 'destructive'}
-                      >
+                      <Badge variant={enquiry.contacted ? 'secondary' : 'destructive'}>
                         {enquiry.contacted ? 'Contacted' : 'Pending'}
                       </Badge>
                     </div>
@@ -553,7 +545,6 @@ function DashboardContent() {
             )}
           </TabsContent>
 
-          {/* Waitlist Tab */}
           <TabsContent value="waitlist" className="space-y-4">
             {mockWaitlist.length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
@@ -592,9 +583,8 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Check if already authenticated in session storage
-    const savedPassword = sessionStorage.getItem('dashboardPassword')
-    if (savedPassword) {
+    const savedAuth = sessionStorage.getItem('dashboardAuth')
+    if (savedAuth === 'true') {
       setIsAuthenticated(true)
     }
     setIsLoading(false)
@@ -612,9 +602,7 @@ export default function DashboardPage() {
     return (
       <PasswordPrompt
         onSuccess={() => setIsAuthenticated(true)}
-        onError={() => {
-          // Stay on password screen
-        }}
+        onError={() => {}}
       />
     )
   }
