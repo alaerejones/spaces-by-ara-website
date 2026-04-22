@@ -43,13 +43,19 @@ export function PropertyOwnersSection() {
             <p className="text-md text-muted-foreground leading-relaxed mb-8">
               Spaces by Ara works with property owners and developers who want their residential buildings professionally managed. We handle tenant structure, occupancy, facility oversight, and daily management operations while ensuring properties remain in excellent condition.
             </p>
-            <Button
-              asChild
-              size="lg"
-              className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
-            >
-              <Link href="https://calendar.app.google/h4MZ96LK9L5PWL8E8">Book a Discovery Call</Link>
-            </Button>
+           <Button
+  asChild
+  size="lg"
+  className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
+>
+  <a
+    href="https://calendar.app.google/h4MZ96LK9L5PWL8E8"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Book a Discovery Call
+  </a>
+</Button>
           </div>
         </div>
       </div>

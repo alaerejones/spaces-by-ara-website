@@ -42,14 +42,18 @@ export function ManagementHero() {
             Spaces by Ara provides management services for residential buildings in Lagos. Our role is to ensure properties operate efficiently while maintaining strong tenant structure and facility oversight.
           </p>
           <Button
-            asChild
-            size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-          >
-            <Link href="https://calendar.app.google/h4MZ96LK9L5PWL8E8">
-              Book a Discovery Call
-            </Link>
-          </Button>
+  asChild
+  size="lg"
+  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
+>
+  <a
+    href="https://calendar.app.google/h4MZ96LK9L5PWL8E8"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Book a Discovery Call
+  </a>
+</Button>
         </div>
       </div>
     </section>

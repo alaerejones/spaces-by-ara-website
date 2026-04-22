@@ -25,14 +25,18 @@ export function ManagementCta() {
           <p className="text-md text-white/80 leading-relaxed mb-10">
             Schedule a discovery call to discuss how Spaces by Ara can help manage your residential property.
           </p>
-          <Button
-           size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
-          >
-            <link href="https://calendar.app.google/h4MZ96LK9L5PWL8E8">
-            Book a Discovery Call
-            </link>
-          </Button>
+         <Button
+    size="lg"
+    className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
+  >
+    <a
+      href="https://calendar.app.google/h4MZ96LK9L5PWL8E8"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Book a Discovery Call
+    </a>
+  </Button>
         </div>
       </div>
     </section>
