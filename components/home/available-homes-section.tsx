@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 
-const Houses = [
+const Homes = [
   {
     id: 1,
     image: "/images/apartment-1.jpg",
@@ -39,7 +39,7 @@ const Houses = [
   },
 ]
 
-export function AvailableHousesSection() {
+export function AvailableHomesSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
@@ -52,15 +52,15 @@ export function AvailableHousesSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Houses currently available in Lagos.
+            Homes currently available in Lagos.
           </h2>
           <p className="text-md text-muted-foreground leading-relaxed">
-            Our current Houses are shared apartments located within secure residential neighborhoods in Lagos. Residents have private rooms while sharing common spaces such as the kitchen and living areas. Each home is professionally managed and maintained by the Spaces by Ara team.
+            Our current Homes are shared apartments located within secure residential neighborhoods in Lagos. Residents have private rooms while sharing common spaces such as the kitchen and living areas. Each home is professionally managed and maintained by the Spaces by Ara team.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {Houses.map((home, index) => (
+          {Homes.map((home, index) => (
             <div
               key={home.id}
               className={cn(

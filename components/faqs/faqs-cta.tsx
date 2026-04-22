@@ -24,7 +24,7 @@ export function FaqsCta() {
             Still have questions?
           </h2>
           <p className="text-md text-white/80 leading-relaxed mb-10">
-            Contact us directly and our team will be happy to help you with any questions about our Houses, investments, or services.
+            Contact us directly and our team will be happy to help you with any questions about our apartments, investments, or services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button

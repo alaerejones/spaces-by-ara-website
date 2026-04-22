@@ -4,7 +4,7 @@ import { Instagram, Linkedin, Phone, Mail } from "lucide-react"
 
 const footerLinks = {
   services: [
-    { href: "/spaces", label: "Houses" },
+    { href: "/spaces", label: "Homes" },
     { href: "/invest", label: "Investors" },
     { href: "/partners", label: "Partners" },
     { href: "/management", label: "Property Owners" },
