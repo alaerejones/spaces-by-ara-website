@@ -2,134 +2,191 @@
 
 import * as React from "react"
 import Image from "next/image"
-import { MapPin, Users } from "lucide-react"
+import { MapPin } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogClose,
+} from "@/components/ui/dialog"
 
-const Homes = [
+const privateApartmentsData = [
   {
     id: 1,
-    image: "/images/bedroom.jpg",
-    location: "BQ",
-    type: "Boys Quarter Unit",
-    occupancy: "Available",
-    price: "N170,000/month",
-    features: ["Private unit", "Self-contained", "24/7 security", "Utilities included"],
-  },
-  {
-    id: 2,
-    image: "/images/apartment-1.jpg",
-    location: "Standard Room",
-    type: "Private Room in Shared Apartment",
-    occupancy: "Available",
-    price: "N250,000/month",
-    features: ["Private bedroom", "Shared kitchen", "Shared living area", "24/7 security"],
-  },
-  {
-    id: 3,
-    image: "/images/apartment-2.jpg",
-    location: "Large Room",
-    type: "Large Private Room",
-    occupancy: "Available",
-    price: "N300,000/month",
-    features: ["Spacious bedroom", "Shared kitchen", "Work-friendly space", "Premium amenities"],
-  },
-  {
-    id: 4,
-    image: "/images/apartment-3.jpg",
-    location: "Masters Room",
-    type: "Master Bedroom with Ensuite",
-    occupancy: "Available",
-    price: "N350,000/month",
-    features: ["Master bedroom", "Private bathroom", "Premium location", "Full amenities"],
+    name: "Ara's Premium 2 Bedroom Apartment",
+    price: "₦2,100,000/month",
+    location: "Lagos",
+    badge: "Minimum 3 months",
+    description:
+      "Experience luxury living with our premium 2-bedroom apartment.",
+    features: [
+      "2 Bedrooms fully furnished",
+      "Entirely private (no shared spaces)",
+      "Full kitchen",
+      "Living room & bathrooms",
+      "Professional management included",
+      "Utilities coordination",
+    ],
+    videoUrl:
+      "https://www.youtube.com/embed/863BWPwYs4w?autoplay=1&mute=1&rel=0&modestbranding=1&controls=1&iv_load_policy=3&playsinline=1&enablejsapi=1",
   },
 ]
 
-export function CurrentOptions() {
+export function PrivateApartments() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
   const { openEnquiryModal } = useEnquiryModal()
+  const [selectedProperty, setSelectedProperty] = React.useState<string | null>(null)
+  const [bookingModalOpen, setBookingModalOpen] = React.useState(false)
+
+  const handleBookingModalOpen = (propertyName: string) => {
+    setSelectedProperty(propertyName)
+    setBookingModalOpen(true)
+  }
 
   return (
-    <section id="available-Homes" ref={ref} className="py-20 lg:py-30 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div
-          className={cn(
-            "max-w-3xl mb-12 transition-all duration-700",
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          )}
-        >
-          <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Current options available.
-          </h2>
-          <p className="text-md text-muted-foreground leading-relaxed">
-            Shared apartments with private rooms are currently available across selected Lagos neighborhoods. Additional housing options including full apartments and furnished units will be introduced in future phases.
-          </p>
-        </div>
+    <>
+      <section
+        id="private-apartments"
+        ref={ref}
+        className="py-20 lg:py-30 bg-background pb-24"
+      >
+        <div className="container mx-auto px-4 lg:px-8">
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {Homes.map((home, index) => (
-            <div
-              key={home.id}
-              className={cn(
-                "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
-                isInView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-56 overflow-hidden">
-                <Image
-                  src={home.image}
-                  alt={`Apartment in ${home.location}`}
-                  fill
-                  className="object-cover img-hover-scale"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span className="text-sm">{home.location}</span>
+          {/* Header */}
+          <div
+            className={cn(
+              "max-w-3xl mb-12 transition-all duration-700",
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold mb-5">
+              Premium Private Apartments
+            </h2>
+            <p className="text-md text-muted-foreground leading-relaxed">
+              Our collection of luxury private apartments offers complete
+              independence with world-class amenities.
+            </p>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {privateApartmentsData.map((apartment, index) => (
+              <div
+                key={apartment.id}
+                className={cn(
+                  "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                )}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                {/* Video */}
+                <div className="relative h-56 overflow-hidden bg-black">
+                  <iframe
+                    src={apartment.videoUrl}
+                    className="w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    title={apartment.name}
+                  />
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  
+                  {/* Top Row */}
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center gap-2 text-muted-foreground">
+                      <MapPin className="h-4 w-4" />
+                      <span className="text-sm">{apartment.location}</span>
+                    </div>
+                    <Badge>{apartment.badge}</Badge>
                   </div>
-                  <div className="flex items-center gap-1 text-olive dark:text-accent-lime text-sm">
-                    <Users className="h-4 w-4" />
-                    <span>{home.occupancy}</span>
+
+                  {/* Title */}
+                  <h3 className="text-lg font-semibold mb-2">
+                    {apartment.name}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {apartment.description}
+                  </p>
+
+                  {/* Features */}
+                  <ul className="space-y-2 mb-6">
+                    {apartment.features.map((feature, idx) => (
+                      <li
+                        key={idx}
+                        className="text-sm text-muted-foreground flex items-center gap-2"
+                      >
+                        <div className="w-1.5 h-1.5 rounded-full bg-olive dark:bg-accent-lime" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Price */}
+                  <p className="text-olive dark:text-accent-lime font-semibold text-lg mb-4">
+                    {apartment.price}
+                  </p>
+
+                  {/* Actions */}
+                  <div className="flex flex-col gap-3">
+                    <Button
+                      onClick={() =>
+                        openEnquiryModal({
+                          property: apartment.name,
+                          enquiryType: "General Enquiry",
+                        })
+                      }
+                      className="w-full bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green"
+                    >
+                      Enquire
+                    </Button>
+
+                    <Button
+                      variant="outline"
+                      onClick={() => handleBookingModalOpen(apartment.name)}
+                      className="w-full"
+                    >
+                      Check Availability
+                    </Button>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {home.type}
-                </h3>
-                <p className="text-olive dark:text-accent-lime font-semibold text-lg mb-4">
-                  {home.price}
-                </p>
-                <ul className="space-y-2 mb-6">
-                  {home.features.map((feature, idx) => (
-                    <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-olive dark:bg-accent-lime" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <Button
-                  onClick={() =>
-                    openEnquiryModal({
-                      property: home.type,
-                      enquiryType: "Viewing Request",
-                    })
-                  }
-                  className="w-full bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
-                >
-                  Request Viewing
-                </Button>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Booking Modal */}
+      <Dialog open={bookingModalOpen} onOpenChange={setBookingModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>
+              {selectedProperty && `Book ${selectedProperty}`}
+            </DialogTitle>
+            <DialogClose />
+          </DialogHeader>
+
+          <div className="w-full mt-4">
+            <iframe
+              src="https://www.bookingmood.com/embed/a307c975-c2cb-4a73-aa84-f3ec8b2e9eff?"
+              style={{ width: "100%", border: "none", minHeight: "500px" }}
+              title="Booking System"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   )
 }
