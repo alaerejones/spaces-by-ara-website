@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
@@ -39,9 +40,7 @@ const privateApartmentsData = [
 export function PrivateApartments() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
   const { openEnquiryModal } = useEnquiryModal()
-  const [selectedProperty, setSelectedProperty] = React.useState<string | null>(
-    null
-  )
+  const [selectedProperty, setSelectedProperty] = React.useState<string | null>(null)
   const [bookingModalOpen, setBookingModalOpen] = React.useState(false)
 
   const handleBookingModalOpen = (propertyName: string) => {
@@ -51,72 +50,93 @@ export function PrivateApartments() {
 
   return (
     <>
-      <section id="private-apartments" ref={ref} className="py-20 lg:py-30 bg-muted/30">
+      <section
+        id="private-apartments"
+        ref={ref}
+        className="py-20 lg:py-30 bg-muted/30"
+      >
         <div className="container mx-auto px-4 lg:px-8">
+          
+          {/* Header */}
           <div
             className={cn(
               "max-w-3xl mb-12 transition-all duration-700",
               isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
+            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold mb-5">
               Premium Private Apartments
             </h2>
-            <p className="text-md text-muted-foreground leading-relaxed">
-              Our collection of luxury private apartments offers complete
-              independence with world-class amenities. Fully furnished, turnkey
-              solutions for discerning professionals and families.
+            <p className="text-md text-muted-foreground">
+              Our collection of luxury private apartments offers complete independence with world-class amenities.
             </p>
           </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {privateApartmentsData.map((apartment, index) => (
-            <div
-              key={apartment.id}
-              className={cn(
-                "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
-                isInView
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-8"
-              )}
-              style={{ transitionDelay: `${index * 150}ms` }}
-            >
-              <div className="relative h-56 overflow-hidden bg-black">
-  {apartment.videoUrl ? (
-    <iframe
-      src={apartment.videoUrl}
-      className="w-full h-full"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      title={apartment.name}
-    />
-  ) : (
-    <Image
-      src={apartment.image}
-      alt={`${apartment.type} in ${apartment.location}`}
-      fill
-      className="object-cover group-hover:scale-105 transition-transform duration-500"
-      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-    />
-  )}
-</div>
-              
+          {/* Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {privateApartmentsData.map((apartment, index) => (
+              <div
+                key={apartment.id}
+                className={cn(
+                  "bg-card rounded-xl overflow-hidden border border-border shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group",
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-8"
+                )}
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                <div className="relative h-56 overflow-hidden bg-black">
+                  {apartment.videoUrl ? (
+                    <iframe
+                      src={apartment.videoUrl}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      title={apartment.name}
+                    />
+                  ) : (
+                    <Image
+                      src="/placeholder.jpg"
+                      alt={apartment.name}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+
+                <div className="p-5">
+                  <h3 className="font-semibold text-lg mb-2">
+                    {apartment.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    {apartment.price}
+                  </p>
+
+                  <Button
+                    className="w-full"
+                    onClick={() => handleBookingModalOpen(apartment.name)}
+                  >
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
       </section>
 
       {/* Booking Modal */}
       <Dialog open={bookingModalOpen} onOpenChange={setBookingModalOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>  
-            <DialogTitle className="text-xl">
+          <DialogHeader>
+            <DialogTitle>
               {selectedProperty && `Book ${selectedProperty}`}
             </DialogTitle>
             <DialogClose />
           </DialogHeader>
 
           <div className="w-full mt-4">
-            <script src="https://www.bookingmood.com/js/resize.js"></script>
-    <div className="w-full mt-4">
-            <script src="https://www.bookingmood.com/js/resize.js"></script>
             <iframe
               src="https://www.bookingmood.com/embed/a307c975-c2cb-4a73-aa84-f3ec8b2e9eff?"
               style={{ width: "100%", border: "none", minHeight: "500px" }}
