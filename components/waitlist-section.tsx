@@ -57,7 +57,7 @@ export function WaitlistSection({
               {subtitle}
             </p>
           )}
-          <h2 className="text-[28px] md:text-[36px] font-bold text-foreground leading-[120%] mb-4">
+          <h2 className="text-[21px] md:text-[25px] font-bold text-foreground leading-[120%] mb-4">
             {title}
           </h2>
           {description && (
