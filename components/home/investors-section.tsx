@@ -84,7 +84,7 @@ export function InvestorsSection() {
             size="lg"
             className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
           >
-            <Link href="/invest">Download Investor Brochure</Link>
+            <Link href="/documents/investor-brochure.pdf">Download Investor Brochure</Link>
           </Button>
         </div>
       </div>

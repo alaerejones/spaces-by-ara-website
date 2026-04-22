@@ -67,7 +67,7 @@ const faqCategories = [
       {
         question: "How can I get more information about investing?",
         answer:
-          "You can request our investor brochure by contacting us through the Invest page. Our team will provide detailed information about current opportunities and schedule a consultation to discuss your investment goals.",
+          "You can download our investor brochure and proceed to schedule a consultation to discuss your investment goals.",
       },
     ],
   },

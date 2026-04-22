@@ -46,7 +46,7 @@ export function InvestHero() {
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
           >
-            <Link href="mailto:Spacesbyara@gmail.com?subject=Investor Brochure Request">
+            <Link href="/documents/investor-brochure.pdf">
               Download Investor Brochure
             </Link>
           </Button>
