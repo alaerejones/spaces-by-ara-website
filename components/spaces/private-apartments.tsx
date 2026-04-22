@@ -36,7 +36,7 @@ const privateApartmentsData = [
       "Utilities coordination",
     ],
     videoUrl:
-      "https://www.youtube.com/embed/o3vkM66MWJs?autoplay=1&mute=1&rel=0&modestbranding=1&controls=1&iv_load_policy=3&playsinline=1&enablejsapi=1",
+      "https://www.youtube.com/embed/863BWPwYs4w?autoplay=1&mute=1&rel=0&modestbranding=1&controls=1&iv_load_policy=3&playsinline=1&enablejsapi=1",
   },
 ]
 
@@ -85,15 +85,25 @@ export function PrivateApartments() {
                 )}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="relative h-56 overflow-hidden">
-                  <Image
-                    src={apartment.image}
-                    alt={`${apartment.type} in ${apartment.location}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                </div>
+                <div className="relative h-56 overflow-hidden bg-black">
+  {apartment.videoUrl ? (
+    <iframe
+      src={apartment.videoUrl}
+      className="w-full h-full"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+      title={apartment.name}
+    />
+  ) : (
+    <Image
+      src={apartment.image}
+      alt={`${apartment.type} in ${apartment.location}`}
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-500"
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
+  )}
+</div>
                 <div className="p-6">
                   <div className="flex items-center gap-2 text-muted-foreground mb-3">
                     <MapPin className="h-4 w-4" />
