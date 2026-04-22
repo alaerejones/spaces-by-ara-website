@@ -53,34 +53,46 @@ export function EnquiryModal() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    setSubmitStatus('idle')
+  e.preventDefault()
+  setIsSubmitting(true)
+  setSubmitStatus('idle')
 
-    try {
-      const response = await fetch('/api/enquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      })
-
-      if (!response.ok) throw new Error('Failed to submit enquiry')
-
-      setSubmitStatus('success')
-      setFormData({ name: '', email: '', phone: '', enquiry: '' })
-
-      // Close modal after 2 seconds
-      setTimeout(() => {
-        closeModal()
-        setSubmitStatus('idle')
-      }, 2000)
-    } catch (error) {
-      console.error('Enquiry submission error:', error)
-      setSubmitStatus('error')
-    } finally {
-      setIsSubmitting(false)
+  try {
+    // 1. Save to Supabase via API route
+    const response = await fetch('/api/enquiry', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+    // Don't block on Supabase failure — still send WhatsApp
+    if (!response.ok) {
+      console.error('Supabase save failed but continuing to WhatsApp')
     }
+
+    // 2. Open WhatsApp with pre-filled message
+    const waMessage = 
+      `🏠 *New Enquiry — Spaces by Ara*\n\n` +
+      `*Name:* ${formData.name}\n` +
+      `*Phone:* ${formData.phone}\n` +
+      `*Email:* ${formData.email}\n` +
+      `*Enquiry:* ${formData.enquiry}`
+    const waUrl = `https://wa.me/2348058092401?text=${encodeURIComponent(waMessage)}`
+    window.open(waUrl, '_blank')
+
+    setSubmitStatus('success')
+    setFormData({ name: '', email: '', phone: '', enquiry: '' })
+
+    setTimeout(() => {
+      closeModal()
+      setSubmitStatus('idle')
+    }, 3000)
+  } catch (error) {
+    console.error('Enquiry submission error:', error)
+    setSubmitStatus('error')
+  } finally {
+    setIsSubmitting(false)
   }
+}
 
   return (
     <Dialog open={isOpen} onOpenChange={closeModal}>
