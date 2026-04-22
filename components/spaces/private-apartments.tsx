@@ -1,6 +1,7 @@
 "use client"
 
-import * as React from "reactimimport { Badge } from "@/components/ui/badge"
+import * as React from "react"
+import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { useEnquiryModal } from "@/components/enquiry-modal-context"
