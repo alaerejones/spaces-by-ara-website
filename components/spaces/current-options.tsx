@@ -117,7 +117,7 @@ export function CurrentOptions() {
                 <Button
                   onClick={() =>
                     openEnquiryModal({
-                      property: 'Boys Quater Unit',
+                      property: 'home.type',
                       enquiryType: "Viewing Request",
                     })
                   }
