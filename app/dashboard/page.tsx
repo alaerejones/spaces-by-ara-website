@@ -139,7 +139,7 @@ const mockEnquiries = [
   },
 ]
 
-const mockWaitlist = [
+const waitlist = [
   {
     id: 1,
     created_at: new Date(Date.now() - 3 * 60 * 60 * 1000).toISOString(),
@@ -576,12 +576,12 @@ useEffect(() => {
           </TabsContent>
 
           <TabsContent value="waitlist" className="space-y-4">
-            {mockWaitlist.length === 0 ? (
+            {waitlist.length === 0 ? (
               <Card className="p-8 text-center text-muted-foreground">
                 No waitlist signups
               </Card>
             ) : (
-              mockWaitlist.map((item) => (
+              waitlist.map((item) => (
                 <Card key={item.id} className="p-4 sm:p-6">
                   <div className="flex items-center justify-between">
                     <div>
