@@ -42,19 +42,26 @@ export function ManagementHero() {
             Spaces by Ara provides management services for residential buildings in Lagos. Our role is to ensure properties operate efficiently while maintaining strong tenant structure and facility oversight.
           </p>
           <Button
+  asChild
   size="lg"
   className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-  onClick={() => {
-    if (typeof window !== "undefined" && (window as any).calendar) {
-      ;(window as any).calendar.schedulingButton.load({
-        url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
-        color: "#CCFB6E",
-        label: "Book a Discovery Call",
-      })
-    }
-  }}
 >
-  Book a Discovery Call
+  <a
+    href="#"
+    onClick={(e) => {
+      e.preventDefault()
+
+      if (typeof window !== "undefined" && (window as any).calendar) {
+        ;(window as any).calendar.schedulingButton.load({
+          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
+          color: "#CCFB6E",
+          label: "Book a Discovery Call",
+        })
+      }
+    }}
+  >
+    Book a Discovery Call
+  </a>
 </Button>
         </div>
       </div>
