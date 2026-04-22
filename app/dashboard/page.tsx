@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { LogOut, Search, Download, ChevronDown, Plus, Eye, EyeOff } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { createClient } from '@supabase/supabase-js'
 
 // Password prompt component
 function PasswordPrompt({
@@ -169,7 +170,36 @@ interface Enquiry {
 }
 
 function DashboardContent() {
-  const [enquiries, setEnquiries] = useState<Enquiry[]>(mockEnquiries)
+  const [enquiries, setEnquiries] = useState<Enquiry[]>([])
+const [waitlist, setWaitlist] = useState<any[]>([])
+const [loading, setLoading] = useState(true)
+
+const fetchData = useCallback(async () => {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  )
+  const { data: enquiryData } = await supabase
+    .from('enquiries')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  const { data: waitlistData } = await supabase
+    .from('waitlist')
+    .select('*')
+    .order('created_at', { ascending: false })
+
+  if (enquiryData) setEnquiries(enquiryData)
+  if (waitlistData) setWaitlist(waitlistData)
+  setLoading(false)
+}, [])
+
+useEffect(() => {
+  fetchData()
+  // Poll every 60 seconds
+  const interval = setInterval(fetchData, 60000)
+  return () => clearInterval(interval)
+}, [fetchData])
   const [selectedTab, setSelectedTab] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [expandedId, setExpandedId] = useState<number | null>(null)
