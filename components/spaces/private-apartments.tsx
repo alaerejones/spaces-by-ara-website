@@ -9,7 +9,7 @@ import { useInView } from "@/hooks/use-in-view"
 import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
-const PrivateApartments = [
+const privateApartmentsData = [
   {
     id: 1,
     image: "/images/apartment-1.jpg",
@@ -58,7 +58,7 @@ export function PrivateApartments() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {PrivateApartments.map((apartment, index) => (
+          {privateApartmentsData.map((apartment, index) => (
             <div
               key={apartment.id}
               className={cn(
