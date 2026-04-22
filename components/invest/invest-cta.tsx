@@ -28,20 +28,24 @@ export function InvestCta() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              onClick={() => openEnquiryModal({ enquiryType: "investment" })}
-              size="lg"
-              className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
-            >
-              Get Investment Details
-            </Button>
-            <Button
-              onClick={() => openEnquiryModal({ enquiryType: "investment" })}
-              size="lg"
-              variant="outline"
-              className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base font-medium px-10 py-2 bg-white/5"
-            >
-              Schedule a Call
-            </Button>
+  size="lg"
+  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
+  asChild
+>
+  <a href="/documents/investor-brochure.pdf" target="_blank" rel="noopener noreferrer">
+    Download Investor Brochure
+  </a>
+</Button>
+           <Button
+  size="lg"
+  variant="outline"
+  className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base font-medium px-10 py-2 bg-white/5"
+  asChild
+>
+  <a href="https://calendar.app.google/h4MZ96LK9L5PWL8E8" target="_blank" rel="noopener noreferrer">
+    Schedule a Call
+  </a>
+</Button>
           </div>
         </div>
       </div>
