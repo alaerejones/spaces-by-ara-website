@@ -21,7 +21,7 @@ interface EnquiryFormData {
 }
 
 export function EnquiryModal() {
-  const { isOpen, closeModal } = useEnquiryModal()
+  const { isOpen, closeModal, modalData } = useEnquiryModal()
   const [formData, setFormData] = useState<EnquiryFormData>({
     name: '',
     email: '',
@@ -30,6 +30,22 @@ export function EnquiryModal() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  React.useEffect(() => {
+    if (isOpen && modalData) {
+      const prefillText = [
+        modalData.enquiryType && `Type: ${modalData.enquiryType}`,
+        modalData.property && `Property: ${modalData.property}`,
+      ]
+        .filter(Boolean)
+        .join('\n')
+
+      setFormData((prev) => ({
+        ...prev,
+        enquiry: prefillText || '',
+      }))
+    }
+  }, [isOpen, modalData])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target

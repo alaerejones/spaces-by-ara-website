@@ -13,8 +13,8 @@ interface WaitlistSectionProps {
 }
 
 export function WaitlistSection({
-  title = "Join Our Waitlist",
-  description = "Be the first to know about new properties and exclusive opportunities.",
+  title = "Be the first to know.",
+  description = "New spaces, investment opportunities, and updates — straight to your inbox.",
   subtitle = "Get early access to premium spaces",
 }: WaitlistSectionProps) {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
@@ -85,7 +85,7 @@ export function WaitlistSection({
                 ? "Joining..."
                 : submitted
                   ? "Joined!"
-                  : "Join Waitlist"}
+                  : "Join the Waitlist"}
             </Button>
           </form>
 

@@ -2,10 +2,10 @@
 
 import * as React from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { MapPin, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
+import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
 const Homes = [
@@ -49,6 +49,7 @@ const Homes = [
 
 export function CurrentOptions() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
+  const { openEnquiryModal } = useEnquiryModal()
 
   return (
     <section id="available-Homes" ref={ref} className="py-20 lg:py-30 bg-background">
@@ -114,12 +115,15 @@ export function CurrentOptions() {
                   ))}
                 </ul>
                 <Button
-                  asChild
+                  onClick={() =>
+                    openEnquiryModal({
+                      property: home.type,
+                      enquiryType: "Viewing Request",
+                    })
+                  }
                   className="w-full bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
                 >
-                  <Link href={`mailto:Spacesbyara@gmail.com?subject=Viewing Request - ${home.location}`}>
-                    Request Viewing
-                  </Link>
+                  Request Viewing
                 </Button>
               </div>
             </div>
