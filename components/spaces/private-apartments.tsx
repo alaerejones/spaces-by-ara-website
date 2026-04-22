@@ -107,7 +107,7 @@ export function PrivateApartments() {
                 </div>
 
                 {/* Content */}
-                <div className="p-5 space-y-3">
+                <div className="p-5 space-y-3 pb-10">
                   <div className="flex items-center justify-between">
                     <h3 className="font-semibold text-lg">
                       {apartment.name}
