@@ -5,6 +5,8 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
+import { EnquiryModalProvider } from '@/components/enquiry-modal-context'
+import { EnquiryModal } from '@/components/enquiry-modal'
 import './globals.css'
 
 const inter = Inter({ 
@@ -45,16 +47,19 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          forcedTheme="light"
           enableSystem={false}
           disableTransitionOnChange
+          storageKey="spaces-ara-theme"
         >
-          <Header />
-          <main className="min-h-screen pt-20">
-            {children}
-          </main>
-          <Footer />
-          <ScrollToTop />
+          <EnquiryModalProvider>
+            <Header />
+            <main className="min-h-screen pt-20">
+              {children}
+            </main>
+            <Footer />
+            <ScrollToTop />
+            <EnquiryModal />
+          </EnquiryModalProvider>
         </ThemeProvider>
         <Analytics />
       </body>

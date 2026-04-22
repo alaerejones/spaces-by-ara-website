@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import { useTheme } from "next-themes"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -21,7 +22,13 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
+  const [mounted, setMounted] = React.useState(false)
   const pathname = usePathname()
+  const { theme } = useTheme()
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -50,11 +57,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo.PNG"
+              src={mounted && theme === "dark" ? "/images/white logo.PNG" : "/images/logo.PNG"}
               alt="Spaces by Ara"
               width={180}
               height={50}
-              className="h-10 w-auto brightness:dark-110"
+              className="h-10 w-auto"
               priority
             />
           </Link>
