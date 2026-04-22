@@ -39,14 +39,14 @@ export function SpacesHero() {
             Find a home that works with how you earn.
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
-            Spaces by Ara provides professionally managed residential Houses designed for long term living in Lagos. Our current Houses offer private rooms within shared apartments, allowing residents to live comfortably while paying rent in a structure designed for monthly earners.
+            Spaces by Ara provides professionally managed residential Homes designed for long term living in Lagos. Our current Homes offer private rooms within shared apartments, allowing residents to live comfortably while paying rent in a structure designed for monthly earners.
           </p>
           <Button
             asChild
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
           >
-            <Link href="#available-Houses">Find Available Houses</Link>
+            <Link href="#available-Homes">Find Available Homes</Link>
           </Button>
         </div>
       </div>

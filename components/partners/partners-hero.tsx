@@ -39,7 +39,7 @@ export function PartnersHero() {
             Work with us as a service partner.
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
-            Spaces by Ara works with professional service providers who support the daily operation of residential Houses. We prioritize companies that maintain high standards of service delivery.
+            Spaces by Ara works with professional service providers who support the daily operation of residential Homes. We prioritize companies that maintain high standards of service delivery.
           </p>
           <Button
             asChild

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 
-const Houses = [
+const Homes = [
   {
     id: 1,
     image: "/images/bedroom.jpg",
@@ -51,7 +51,7 @@ export function CurrentOptions() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section id="available-Houses" ref={ref} className="py-20 lg:py-30 bg-background">
+    <section id="available-Homes" ref={ref} className="py-20 lg:py-30 bg-background">
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
@@ -68,7 +68,7 @@ export function CurrentOptions() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {Houses.map((home, index) => (
+          {Homes.map((home, index) => (
             <div
               key={home.id}
               className={cn(

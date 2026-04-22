@@ -38,10 +38,10 @@ export function HeroSection() {
           }`}
         >
           <h1 className="text-[25px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">
-            Rental Houses in Lagos you can pay for monthly.
+            Rental Homes in Lagos you can pay for monthly.
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
-            Spaces by Ara provides professionally managed Houses for long term living. Our apartments are structured for people who earn monthly and want stability without the pressure of yearly rent.
+            Spaces by Ara provides professionally managed Homes for long term living. Our apartments are structured for people who earn monthly and want stability without the pressure of yearly rent.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button

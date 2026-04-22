@@ -19,14 +19,14 @@ const faqs = [
       "Instead of paying a full year upfront, residents pay rent in a structure designed for monthly income earners. The exact payment terms are discussed during the application process based on the specific property and arrangement.",
   },
   {
-    question: "What type of Houses are currently available?",
+    question: "What type of Homes are currently available?",
     answer:
-      "Our current Houses are shared apartments where residents have their own private bedroom while sharing common areas like the kitchen and living room. All Houses are located in secure residential neighborhoods in Lagos.",
+      "Our current Homes are shared apartments where residents have their own private bedroom while sharing common areas like the kitchen and living room. All Homes are located in secure residential neighborhoods in Lagos.",
   },
   {
     question: "Who manages the properties?",
     answer:
-      "All Spaces by Ara Houses are professionally managed by our team. We handle maintenance, tenant coordination, house rules enforcement, and ensure each apartment operates smoothly.",
+      "All Spaces by Ara Homes are professionally managed by our team. We handle maintenance, tenant coordination, house rules enforcement, and ensure each apartment operates smoothly.",
   },
   {
     question: "How do I apply for a home?",
@@ -36,7 +36,7 @@ const faqs = [
   {
     question: "Are utilities included in the rent?",
     answer:
-      "Utility arrangements vary by property. Some Houses include utilities in the rent while others have a separate utility structure. This is clarified during the application process.",
+      "Utility arrangements vary by property. Some Homes include utilities in the rent while others have a separate utility structure. This is clarified during the application process.",
   },
 ]
 
