@@ -2,29 +2,23 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { Building2, Home, Users } from "lucide-react"
+import { Wallet, Building } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 
 const investmentTypes = [
   {
-    icon: Home,
-    title: "Furnished Apartment Investment",
+    icon: Wallet,
+    title: "Invest with Funds",
     description:
-      "Invest in furnished residential apartments designed for managed occupancy. Spaces by Ara handles tenant management, maintenance, and operational oversight.",
+      "Fund a furnished or unfurnished residential apartment designed for steady rental income in Lagos. Spaces by Ara handles tenant sourcing, rent collection, maintenance, and daily operations, so you earn without managing the property.",
   },
   {
-    icon: Building2,
-    title: "Unfurnished Apartment Investment",
+    icon: Building,
+    title: "Invest with Property",
     description:
-      "Invest in residential units structured for long term tenants. Spaces by Ara manages tenant onboarding, payments, and property upkeep.",
-  },
-  {
-    icon: Users,
-    title: "Property Owner Investment",
-    description:
-      "Property owners who already have completed buildings can partner with Spaces by Ara to manage the facility while receiving structured returns.",
+      "Have a residential property in Lagos? Place it under Spaces by Ara management for a fixed investment period. We handle tenant onboarding, rent collection, maintenance, and occupancy, while you receive structured returns. At the end of the term, the property is returned to you.",
   },
 ]
 
@@ -41,14 +35,14 @@ export function InvestorsSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Invest in professionally managed residential living.
+            Invest in professionally managed residential property in Lagos
           </h2>
           <p className="text-md text-muted-foreground leading-relaxed">
-            Spaces by Ara partners with investors who want exposure to Lagos residential housing without the stress of daily operations. Our model focuses on structured residential living designed around monthly income earners. Investors participate through different structures depending on their investment goals.
+            Choose how you want to invest. You can invest with funds or with an existing property. Spaces by Ara manages tenants, operations, and income delivery.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {investmentTypes.map((type, index) => (
             <div
               key={type.title}
@@ -84,7 +78,9 @@ export function InvestorsSection() {
             size="lg"
             className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
           >
-            <Link href="/documents/investor-brochure.pdf">Download Investor Brochure</Link>
+            <Link href="/documents/investor-brochure.pdf">
+              View Investment Details
+            </Link>
           </Button>
         </div>
       </div>
