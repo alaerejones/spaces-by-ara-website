@@ -44,7 +44,7 @@ export function WhyInvest() {
             Why invest in managed housing.
           </h2>
           <p className="text-md text-muted-foreground leading-relaxed">
-            Urban professionals in Lagos continue to face increasing challenges with yearly rent structures. Spaces by Ara addresses this gap by organizing residential living for monthly income earners. This demand creates opportunities for investors to participate in a managed housing model focused on consistent occupancy and professional property oversight.
+            Urban professionals in Lagos continue to face increasing challenges with yearly rent structures. Spaces by Ara addresses this gap by organizing residential living for monthly income earners. This demand creates opportunities for investors to participate in a managed housing model focused on consistent occupancy and professional property management.
           </p>
         </div>
 

@@ -12,7 +12,7 @@ const investmentTypes = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Fund a furnished or unfurnished residential apartment designed for steady rental income in Lagos. Spaces by Ara handles tenant sourcing, rent collection, maintenance, and daily operations, so you earn without managing the property.",
+      "Invest funds to the business to acquire residential apartment(s) designed for steady rental income in Lagos. Spaces by Ara handles tenant sourcing, rent collection, maintenance, and daily operations, so you earn steadily without stress.",
   },
   {
     icon: Building,
