@@ -8,26 +8,30 @@ import { cn } from "@/lib/utils"
 
 export function ManagementCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
+  const [calendarReady, setCalendarReady] = React.useState(false)
 
   const handleBookingClick = () => {
-    const target = document.getElementById('calendar-btn-management-cta')
-    if (target) {
-      const calBtn = target.querySelector('button, a') as HTMLElement
-      if (calBtn) { calBtn.click(); return }
+    if (calendarReady) {
+      const target = document.getElementById('cal-mgmt-cta')
+      if (target) {
+        const calBtn = target.querySelector('button, a') as HTMLElement
+        if (calBtn) { calBtn.click(); return }
+      }
     }
     window.open('https://calendar.app.google/h4MZ96LK9L5PWL8E8', '_blank')
   }
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
-      <div id="calendar-btn-management-cta" style={{ display: 'none' }} />
+
+      {/* Google Calendar Script */}
       <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
       <Script
         src="https://calendar.google.com/calendar/scheduling-button-script.js"
         strategy="lazyOnload"
         onLoad={() => {
           if (typeof window !== 'undefined' && (window as any).calendar) {
-            const btn = document.getElementById('calendar-btn-management-cta')
+            const btn = document.getElementById('cal-mgmt-cta')
             if (btn) {
               ;(window as any).calendar.schedulingButton.load({
                 url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true',
@@ -35,8 +39,25 @@ export function ManagementCta() {
                 label: 'Book a Discovery Call',
                 target: btn,
               })
+              setCalendarReady(true)
             }
           }
+        }}
+      />
+
+      {/* Hidden calendar target */}
+      <div
+        id="cal-mgmt-cta"
+        aria-hidden="true"
+        style={{
+          position: 'fixed',
+          top: '-9999px',
+          left: '-9999px',
+          width: '1px',
+          height: '1px',
+          overflow: 'hidden',
+          opacity: 0,
+          pointerEvents: 'none',
         }}
       />
 
