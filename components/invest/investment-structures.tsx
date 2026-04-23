@@ -65,7 +65,7 @@ export function InvestmentStructures() {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-light-bg dark:bg-olive flex items-center justify-center mb-6">
-                <structure.icon className="h-7 w-7 text-olive dark:text-accent-lime" />
+                <structure.icon className="h-6 w-6 text-olive dark:text-accent-lime" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 {structure.title}

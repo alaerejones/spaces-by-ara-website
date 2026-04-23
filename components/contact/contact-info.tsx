@@ -70,7 +70,7 @@ export function ContactInfo() {
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0 mt-1">
-                  <Icon className="h-5 w-5 text-olive dark:text-accent-lime" />
+                  <Icon className="h-9 w-9 text-olive dark:text-accent-lime" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm font-medium text-muted-foreground mb-1">
