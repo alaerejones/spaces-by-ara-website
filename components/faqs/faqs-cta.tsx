@@ -28,7 +28,7 @@ export function FaqsCta() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              onClick={() => openEnquiryModal()}
+              onClick={() => openModal()}
               size="lg"
               className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
             >
