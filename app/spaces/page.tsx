@@ -20,10 +20,10 @@ export default function SpacesPage() {
       <WhatToExpect />
       <CurrentOptions />
       <PrivateApartments />
-      <WaitlistSection
+      {/* <WaitlistSection
         title="Never Miss an Opportunity"
         description="Join our waitlist to get notified about new properties and exclusive deals."
-      />
+      /> */}
       <SpacesCta />
     </>
   )
