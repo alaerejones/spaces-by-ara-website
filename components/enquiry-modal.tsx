@@ -164,7 +164,7 @@ export function EnquiryModal() {
 
             <div>
               <label htmlFor="enquiry" className="block text-sm font-medium text-foreground mb-1">
-                Your Enquiry
+                Your Message
               </label>
               <Textarea
                 id="enquiry"
