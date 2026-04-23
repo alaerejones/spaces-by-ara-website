@@ -42,7 +42,7 @@ const privateApartmentsData = [
 
 export function PrivateApartments() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+  const { openModal } = useEnquiryModal()
   const [selectedProperty, setSelectedProperty] = React.useState<string | null>(
     null
   )
@@ -136,7 +136,7 @@ export function PrivateApartments() {
                     <Button
                       variant="outline"
                       className="flex-1"
-                      onClick={() => openEnquiryModal(apartment.name)}
+                      onClick={() => openModal(apartment.name)}
                     >
                       Enquire
                     </Button>
