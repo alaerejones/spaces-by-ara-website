@@ -94,12 +94,12 @@ export function ManagementHero() {
             maintaining strong tenant structure and facility oversight.
           </p>
           <Button
-            size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-            onClick={handleBookingClick}
-          >
-            Book a Discovery Call
-          </Button>
+  size="lg"
+  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2 w-fit"
+  onClick={handleBookingClick}
+>
+  Book a Discovery Call
+</Button>
         </div>
       </div>
     </section>
