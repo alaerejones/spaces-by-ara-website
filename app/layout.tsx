@@ -7,7 +7,6 @@ import { Footer } from '@/components/footer'
 import { ScrollToTop } from '@/components/scroll-to-top'
 import { EnquiryModalProvider } from '@/components/enquiry-modal-context'
 import { EnquiryModal } from '@/components/enquiry-modal'
-import Script from "next/script"
 import './globals.css'
 
 const inter = Inter({ 
@@ -64,14 +63,7 @@ export default function RootLayout({
         </ThemeProvider>
         <Analytics />
         <link
-  href="https://calendar.google.com/calendar/scheduling-button-script.css"
-  rel="stylesheet"
-/>
-
-<Script
-  src="https://calendar.google.com/calendar/scheduling-button-script.js"
-  strategy="lazyOnload"
-/>
+  
       </body>
     </html>
   )
