@@ -29,7 +29,7 @@ export function SpacesCta() {
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
           >
-            <link href="/contact" > Contact Us </link>
+            <a href="/contact" > Contact Us </a>
           </Button>
         </div>
       </div>
