@@ -10,9 +10,9 @@ const structures = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Fund residential apartments in Lagos designed for steady rental income. You can invest in furnished or unfurnished units, while Spaces by Ara manages tenants, payments, and daily operations.",
+      "Fund residential apartments in Lagos designed for steady rental income. You can invest, while Spaces by Ara manages tenants, payments, and daily operations.",
     features: [
-      "Access furnished and unfurnished units",
+      "Get consistent Return on Invest",
       "Tenant sourcing and rent collection handled",
       "Maintenance and operations managed",
       "Consistent income structure",
