@@ -26,11 +26,10 @@ export function SpacesCta() {
             Contact us to schedule a viewing and learn more about our available spaces.
           </p>
           <Button
-            onClick={() => openEnquiryModal()}
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
           >
-            Contact Us
+            <link href="/contact" > Contact Us </link>
           </Button>
         </div>
       </div>
