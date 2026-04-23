@@ -12,13 +12,13 @@ const investmentTypes = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Invest with funds and earn steady returns through a professionally managed income system with Spaces by Ara management. We handle tenants, operations, maintenance and income delivery, so you earn steadily without stress.",
+      "Invest with funds and earn consistent returns through a structured income model. Choose an amount that works for you and receive steady payouts without being involved in management.",
   },
   {
     icon: Building,
     title: "Invest with Property",
     description:
-      "Have a residential property in Lagos? Place it under Spaces by Ara for a fixed investment period. We handle the property management, tenant sourcing and management, usage, rent collection, maintenance, and occupancy, while you receive structured returns.",
+      "Have a property in Lagos? Place it into a fixed investment term and earn steady returns while it is professionally managed. You retain ownership and receive income throughout the period.",
   },
 ]
 
