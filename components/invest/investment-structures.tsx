@@ -10,11 +10,11 @@ const structures = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Invest with funds into a professionally managed income system with Spaces by Ara management and earn steady returns without handling tenants or daily operations. Spaces by Ara manages everything from occupancy to income delivery.",
+      "Invest with funds into a professionally managed income system with Spaces by Ara management and earn steady returns.",
     features: [
       "Earn consistent Return on Invest",
       "Tenant sourcing and rent collection handled",
-      "Maintenance and Management handled",
+      "Flexible investment options to match your budget",
       "No involvement in day-to-day operations",
     ],
   },
