@@ -117,8 +117,8 @@ export function CurrentOptions() {
                 <Button
                   onClick={() =>
                     openModal({
-                      property: 'home.location',
-                      enquiryType: "Viewing Request",
+                      // property: 'home.location',
+                      // enquiryType: "Viewing Request",
                     })
                   }
                   className="w-full bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
