@@ -15,9 +15,9 @@ export default function ContactPage() {
       <div className="py-20 lg:py-30 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            <div className="lg:col-span-2">
+            {/* <div className="lg:col-span-2">
               <ContactForm />
-            </div>
+            </div> */}
             <div>
               <ContactInfo />
             </div>
