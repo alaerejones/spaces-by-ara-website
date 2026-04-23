@@ -56,7 +56,7 @@ export function ContactForm() {
       })
 
       if (!response.ok) {
-        console.error('Supabase save failed but continuing to WhatsApp')
+        console.error('error')
       }
 
       // 2. Open WhatsApp with pre-filled message
@@ -227,7 +227,7 @@ export function ContactForm() {
               ✓ Enquiry sent successfully!
             </p>
             <p className="text-sm text-green-700 dark:text-green-300 mt-1">
-              WhatsApp has opened with your details. Our team will be in touch within 24 hours.
+              We have recieved your message, our team will be in touch within 24 hours.
             </p>
           </div>
         )}

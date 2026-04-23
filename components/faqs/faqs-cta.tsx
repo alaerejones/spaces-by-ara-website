@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 export function FaqsCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+  const { openModal } = useEnquiryModal()
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
