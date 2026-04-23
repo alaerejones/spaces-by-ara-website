@@ -117,7 +117,7 @@ export function CurrentOptions() {
                 <Button
                   onClick={() =>
                     openModal({
-                      property: 'home.type',
+                      property: 'home.location',
                       enquiryType: "Viewing Request",
                     })
                   }
