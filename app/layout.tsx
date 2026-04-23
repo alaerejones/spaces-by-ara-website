@@ -62,8 +62,6 @@ export default function RootLayout({
           </EnquiryModalProvider>
         </ThemeProvider>
         <Analytics />
-        <link
-  
       </body>
     </html>
   )
