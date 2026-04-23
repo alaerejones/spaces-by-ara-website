@@ -49,7 +49,7 @@ const Homes = [
 
 export function CurrentOptions() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+  const { openModal } = useEnquiryModal()
 
   return (
     <section id="available-Homes" ref={ref} className="py-20 lg:py-30 bg-background">
@@ -116,7 +116,7 @@ export function CurrentOptions() {
                 </ul>
                 <Button
                   onClick={() =>
-                    openEnquiryModal({
+                    openModal({
                       property: 'home.type',
                       enquiryType: "Viewing Request",
                     })
