@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 export function ManagementCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+  const { openModal } = useEnquiryModal()
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
@@ -23,10 +23,11 @@ export function ManagementCta() {
             Let us manage your property.
           </h2>
           <p className="text-md text-white/80 leading-relaxed mb-10">
-            Schedule a discovery call to discuss how Spaces by Ara can help manage your residential property.
+            Schedule a discovery call to discuss how Spaces by Ara can help
+            manage your residential property.
           </p>
           <Button
-            onClick={() => openEnquiryModal({ enquiryType: "management" })}
+            onClick={() => openModal({ enquiryType: "Facility Management Enquiry" })}
             size="lg"
             className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
           >
