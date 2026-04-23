@@ -10,24 +10,24 @@ const structures = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Invest with funds into a professionally managed income system with Spaces by Ara management and earn steady returns.",
+      "Invest with funds into a structured income model and earn consistent returns over a defined period. You select an investment amount, and your returns are paid based on a clear structure.",
     features: [
-      "Earn consistent Return on Invest",
-      "Tenant sourcing and rent collection handled",
-      "Flexible investment options to match your budget",
-      "No involvement in day-to-day operations",
+      "Choose an investment amount that fits you",
+      "Earn consistent, structured returns",
+      "Defined investment term and payout model",
+      "Transparent reporting and performance tracking",
     ],
   },
   {
     icon: Building,
     title: "Invest with Property",
     description:
-      "Invest with your property by placing it into a structured income system with Spaces by Ara management. We manage tenants, occupancy, maintenance, and income delivery while you receive structured returns.",
+      "Invest with your property by placing it into a defined investment term. Your property is used within a structured income model, and you receive steady returns while retaining ownership.",
     features: [
-      "Turn your property into an income generating asset",
-      "Full tenant and occupancy management",
-      "Maintenance and upkeep handled",
-      "Defined investment term with returns",
+      "Retain full ownership of your property",
+      "Fixed investment term with clear return structure",
+      "Property is professionally managed throughout",
+      "Income paid consistently during the period",
     ],
   },
 ]
