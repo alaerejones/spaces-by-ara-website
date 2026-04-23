@@ -53,7 +53,7 @@ export function WhyPartner() {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <div className="w-12 h-12 rounded-full bg-olive dark:bg-accent-lime flex items-center justify-center mx-auto mb-6">
-                <benefit.icon className="h-7 w-7 text-white dark:text-dark-green" />
+                <benefit.icon className="h-6 w-6 text-white dark:text-dark-green" />
               </div>
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 {benefit.title}
