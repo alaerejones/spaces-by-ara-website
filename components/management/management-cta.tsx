@@ -25,21 +25,13 @@ export function ManagementCta() {
           <p className="text-md text-white/80 leading-relaxed mb-10">
             Schedule a discovery call to discuss how Spaces by Ara can help manage your residential property.
           </p>
-  <Button
-    size="lg"
-    className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-    onClick={() => {
-      if (typeof window !== "undefined" && (window as any).calendar) {
-        ;(window as any).calendar.schedulingButton.load({
-          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
-          color: "#CCFB6E",
-          label: "Book a Discovery Call",
-        })
-      }
-    }}
-  >
-    Book a Discovery Call
-  </Button>
+          <Button
+            onClick={() => openEnquiryModal({ enquiryType: "management" })}
+            size="lg"
+            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
+          >
+            Book a Discovery Call
+          </Button>
         </div>
       </div>
     </section>
