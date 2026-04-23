@@ -10,19 +10,19 @@ const features = [
     icon: Calendar,
     title: "Monthly payment structure",
     description:
-      "Pay for your home in a way that matches how you earn. No large upfront rent, just a clear and predictable monthly payment.",
+      "Stay long-term and pay rent monthly in a clear and predictable way.",
   },
   {
     icon: Building,
     title: "Structured living experience",
     description:
-      "Every Space by Ara home is set up for comfort and consistency. From move-in to daily living, everything is organized to work smoothly.",
+      "Every Space by Ara home is set up for comfort. From move-in to daily living, everything is organized for your convenence",
   },
   {
     icon: Layers,
     title: "Choose how you live",
     description:
-      "Live in a private room within a shared home or choose a fully private space. All options follow the same simple and reliable system.",
+      "We offer both shared and private homes, with options varying based on availability.. All options follow the same simple and reliable system.",
   },
 ]
 
