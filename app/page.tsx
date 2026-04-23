@@ -24,6 +24,7 @@ export default function HomePage() {
         title="Stay Updated on New Opportunities"
         description="Never miss out on new properties and exclusive offers. Join our community today."
       />
+      {/* <CtaSection /> */}
     </>
   )
 }
