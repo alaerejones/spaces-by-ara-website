@@ -22,7 +22,7 @@ const features = [
     icon: Layers,
     title: "Choose how you live",
     description:
-      "We offer both shared and private homes, with options varying based on availability.. All options follow the same simple and reliable system.",
+      "Choose from full private units or private rooms within our shared apartments. All options follow the same simple and reliable system.",
   },
 ]
 
