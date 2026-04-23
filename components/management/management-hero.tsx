@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Image from "next/image"
-import Link from "next/link"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 
 export function ManagementHero() {
@@ -12,8 +12,47 @@ export function ManagementHero() {
     setIsVisible(true)
   }, [])
 
+  const handleBookingClick = () => {
+    const target = document.getElementById('calendar-btn-target-hero')
+    if (target) {
+      const calBtn = target.querySelector('button, a') as HTMLElement
+      if (calBtn) {
+        calBtn.click()
+        return
+      }
+    }
+    // Fallback if widget hasn't loaded
+    window.open('https://calendar.app.google/h4MZ96LK9L5PWL8E8', '_blank')
+  }
+
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center">
+      {/* Hidden Google Calendar widget target */}
+      <div id="calendar-btn-target-hero" style={{ display: 'none' }} />
+
+      {/* Load Google Calendar script */}
+      <link
+        href="https://calendar.google.com/calendar/scheduling-button-script.css"
+        rel="stylesheet"
+      />
+      <Script
+        src="https://calendar.google.com/calendar/scheduling-button-script.js"
+        strategy="lazyOnload"
+        onLoad={() => {
+          if (typeof window !== 'undefined' && (window as any).calendar) {
+            const btn = document.getElementById('calendar-btn-target-hero')
+            if (btn) {
+              ;(window as any).calendar.schedulingButton.load({
+                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true',
+                color: '#CCFB6E',
+                label: 'Book a Discovery Call',
+                target: btn,
+              })
+            }
+          }
+        }}
+      />
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -39,30 +78,17 @@ export function ManagementHero() {
             Professional residential facility management.
           </h1>
           <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
-            Spaces by Ara provides management services for residential buildings in Lagos. Our role is to ensure properties operate efficiently while maintaining strong tenant structure and facility oversight.
+            Spaces by Ara provides management services for residential buildings
+            in Lagos. Our role is to ensure properties operate efficiently while
+            maintaining strong tenant structure and facility oversight.
           </p>
           <Button
-  asChild
-  size="lg"
-  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
->
-  <a
-    href="#"
-    onClick={(e) => {
-      e.preventDefault()
-
-      if (typeof window !== "undefined" && (window as any).calendar) {
-        ;(window as any).calendar.schedulingButton.load({
-          url: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true",
-          color: "#CCFB6E",
-          label: "Book a Discovery Call",
-        })
-      }
-    }}
-  >
-    Book a Discovery Call
-  </a>
-</Button>
+            size="lg"
+            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
+            onClick={handleBookingClick}
+          >
+            Book a Discovery Call
+          </Button>
         </div>
       </div>
     </section>
