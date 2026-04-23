@@ -8,21 +8,21 @@ import { cn } from "@/lib/utils"
 const features = [
   {
     icon: Calendar,
-    title: "Monthly rent structure",
+    title: "Monthly payment structure",
     description:
-      "Our Homes are designed for people who earn monthly. Instead of paying a full year upfront, residents pay rent in a structure that fits their income flow.",
+      "Pay for your home in a way that matches how you earn. No large upfront rent, just a clear and predictable monthly payment.",
   },
   {
     icon: Home,
-    title: "Shared apartments today",
+    title: "Structured living experience",
     description:
-      "Our current Homes provide private rooms within shared apartments. Each resident has their own room while sharing living areas in well managed Homes.",
+      "Every Space by Ara home is set up for comfort and consistency. From move-in to daily living, everything is organized to work smoothly.",
   },
   {
     icon: Settings,
-    title: "More options coming",
+    title: "Choose how you live",
     description:
-      "Additional housing options including full apartments and furnished units will be introduced as the network of Spaces by Ara Homes grows.",
+      "Live in a private room within a shared home or choose a fully private space. All options follow the same simple and reliable system.",
   },
 ]
 
