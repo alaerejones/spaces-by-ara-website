@@ -12,13 +12,13 @@ const investmentTypes = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Invest funds to the business to acquire residential apartment(s) designed for steady rental income in Lagos. Spaces by Ara handles tenant sourcing, rent collection, maintenance, and daily operations, so you earn steadily without stress.",
+      "Invest with funds and earn steady returns through a professionally managed income system with Spaces by Ara management. We handle tenants, operations, maintenance and income delivery, so you earn steadily without stress.",
   },
   {
     icon: Building,
     title: "Invest with Property",
     description:
-      "Have a residential property in Lagos? Place it under Spaces by Ara management for a fixed investment period. We handle tenant onboarding, rent collection, maintenance, and occupancy, while you receive structured returns. At the end of the term, the property is returned to you.",
+      "Have a residential property in Lagos? Place it under Spaces by Ara for a fixed investment period. We handle the property management, tenant sourcing and management, usage, rent collection, maintenance, and occupancy, while you receive structured returns.",
   },
 ]
 
