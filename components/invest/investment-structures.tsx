@@ -1,42 +1,33 @@
 "use client"
 
 import * as React from "react"
-import { Home, Building2, Users, ArrowRight } from "lucide-react"
+import { Wallet, Building, ArrowRight } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 
 const structures = [
   {
-    icon: Home,
-    title: "Furnished Apartment Investment",
-    description: "Investors participate in furnishing residential units designed for managed occupancy. Spaces by Ara handles tenant management, payments, and operational oversight.",
+    icon: Wallet,
+    title: "Invest with Funds",
+    description:
+      "Fund residential apartments in Lagos designed for steady rental income. You can invest in furnished or unfurnished units, while Spaces by Ara manages tenants, payments, and daily operations.",
     features: [
-      "Invest in fully furnished units",
-      "Professional tenant management",
-      "Maintenance coordination included",
-      "Regular occupancy reports",
+      "Access furnished and unfurnished units",
+      "Tenant sourcing and rent collection handled",
+      "Maintenance and operations managed",
+      "Consistent income structure",
     ],
   },
   {
-    icon: Building2,
-    title: "Unfurnished Apartment Investment",
-    description: "Investors provide residential units structured for long term occupancy while management oversees tenants and building operations.",
+    icon: Building,
+    title: "Invest with Property",
+    description:
+      "Place your residential property under Spaces by Ara management for a fixed investment period. We manage tenants, occupancy, maintenance, and income delivery while you receive structured returns.",
     features: [
-      "Invest in unfurnished units",
-      "Long-term tenant structure",
-      "Building operations oversight",
-      "Property upkeep management",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Property Owner Partnership",
-    description: "Property owners with completed buildings can partner with Spaces by Ara as the facility manager. Management oversees tenants, building operations, and structured occupancy while owners receive agreed returns.",
-    features: [
-      "Partner with existing properties",
-      "Full facility management",
-      "Structured occupancy system",
-      "Agreed return structure",
+      "Submit an existing residential property",
+      "Full tenant and occupancy management",
+      "Maintenance and upkeep handled",
+      "Defined investment term with returns",
     ],
   },
 ]
@@ -54,14 +45,14 @@ export function InvestmentStructures() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-4">
-            Investment structures.
+            Investment options
           </h2>
           <p className="text-md text-muted-foreground max-w-2xl mx-auto">
-            Choose the investment model that aligns with your goals and level of involvement.
+            Choose how you want to invest. You can invest with funds or place an existing property under management for structured returns.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {structures.map((structure, index) => (
             <div
               key={structure.title}
@@ -84,7 +75,10 @@ export function InvestmentStructures() {
               </p>
               <ul className="space-y-3 mt-auto">
                 {structure.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm text-foreground">
+                  <li
+                    key={idx}
+                    className="flex items-center gap-3 text-sm text-foreground"
+                  >
                     <ArrowRight className="h-4 w-4 text-olive dark:text-accent-lime flex-shrink-0" />
                     {feature}
                   </li>
