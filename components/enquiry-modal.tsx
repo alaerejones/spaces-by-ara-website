@@ -180,7 +180,7 @@ export function EnquiryModal() {
 
             {submitStatus === 'error' && (
               <div className="rounded-md bg-destructive/10 p-3 text-sm text-destructive">
-                Failed to send enquiry. Please try again.
+                Failed to send. Please try again.
               </div>
             )}
 
@@ -190,7 +190,7 @@ export function EnquiryModal() {
                 className="flex-1 bg-olive text-white hover:bg-dark-green dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : 'Send Enquiry'}
+                {isSubmitting ? 'Sending...' : 'Send'}
               </Button>
               <Button
                 type="button"

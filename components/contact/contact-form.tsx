@@ -246,7 +246,7 @@ export function ContactForm() {
           disabled={isSubmitting || submitted}
           className="w-full bg-olive text-white hover:bg-dark-green dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 py-6 text-base"
         >
-          {isSubmitting ? "Sending..." : submitted ? "Enquiry Sent ✓" : "Send Enquiry"}
+          {isSubmitting ? "Sending..." : submitted ? "Enquiry Sent ✓" : "Send"}
         </Button>
 
         <p className="text-xs text-muted-foreground text-center">
