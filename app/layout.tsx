@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Spaces by Ara' }],
   openGraph: {
     title: 'Spaces by Ara | Monthly Homes in Lagos',
-    description: 'Professionally managed residential Homes in Lagos designed for long term living with monthly payment structures.',
+    description: 'Professionally managed residential Homes in Lagos designed jfor long term living with monthly payment structures.',
     type: 'website',
     locale: 'en_NG',
   },
