@@ -10,21 +10,21 @@ const structures = [
     icon: Wallet,
     title: "Invest with Funds",
     description:
-      "Fund residential apartments in Lagos designed for steady rental income. You can invest, while Spaces by Ara manages tenants, payments, and daily operations.",
+      "Invest with funds into a professionally managed income system with Spaces by Ara management and earn steady returns without handling tenants or daily operations. Spaces by Ara manages everything from occupancy to income delivery.",
     features: [
-      "Get consistent Return on Invest",
+      "Earn consistent Return on Invest",
       "Tenant sourcing and rent collection handled",
-      "Maintenance and operations managed",
-      "Consistent income structure",
+      "Maintenance and Management handled",
+      "No involvement in day-to-day operations",
     ],
   },
   {
     icon: Building,
     title: "Invest with Property",
     description:
-      "Place your residential property under Spaces by Ara management for a fixed investment period. We manage tenants, occupancy, maintenance, and income delivery while you receive structured returns.",
+      "Invest with your property by placing it into a structured income system with Spaces by Ara management. We manage tenants, occupancy, maintenance, and income delivery while you receive structured returns.",
     features: [
-      "Submit an existing residential property",
+      "Turn your property into an income generating asset",
       "Full tenant and occupancy management",
       "Maintenance and upkeep handled",
       "Defined investment term with returns",
