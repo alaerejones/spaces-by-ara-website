@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Calendar, Home, Settings } from "lucide-react"
+import { Calendar, Building, Layers } from "lucide-react"
 import { useInView } from "@/hooks/use-in-view"
 import { cn } from "@/lib/utils"
 
@@ -13,13 +13,13 @@ const features = [
       "Pay for your home in a way that matches how you earn. No large upfront rent, just a clear and predictable monthly payment.",
   },
   {
-    icon: Home,
+    icon: Building,
     title: "Structured living experience",
     description:
       "Every Space by Ara home is set up for comfort and consistency. From move-in to daily living, everything is organized to work smoothly.",
   },
   {
-    icon: Settings,
+    icon: Layers,
     title: "Choose how you live",
     description:
       "Live in a private room within a shared home or choose a fully private space. All options follow the same simple and reliable system.",
