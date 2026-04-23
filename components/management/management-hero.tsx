@@ -13,8 +13,7 @@ export function ManagementHero() {
     setIsVisible(true)
   }, [])
 
-  const handleBookingClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
+  const handleBookingClick = () => {
     if (calendarReady) {
       const target = document.getElementById('cal-hero')
       if (target) {
@@ -28,6 +27,7 @@ export function ManagementHero() {
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center">
 
+      {/* Google Calendar Script */}
       <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
       <Script
         src="https://calendar.google.com/calendar/scheduling-button-script.js"
@@ -48,6 +48,7 @@ export function ManagementHero() {
         }}
       />
 
+      {/* Hidden calendar target — fully invisible and non-interactive */}
       <div
         id="cal-hero"
         aria-hidden="true"
@@ -63,6 +64,7 @@ export function ManagementHero() {
         }}
       />
 
+      {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/property-owner.jpg"
@@ -76,6 +78,7 @@ export function ManagementHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-dark-green/70 to-transparent" />
       </div>
 
+      {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div
           className={`max-w-2xl transition-all duration-700 ${
@@ -91,14 +94,12 @@ export function ManagementHero() {
             maintaining strong tenant structure and facility oversight.
           </p>
           <Button
-            asChild
-            size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-          >
-            <a href="#" onClick={handleBookingClick}>
-              Book a Discovery Call
-            </a>
-          </Button>
+  size="lg"
+  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2 w-fit"
+  onClick={handleBookingClick}
+>
+  Book a Discovery Call
+</Button>
         </div>
       </div>
     </section>
