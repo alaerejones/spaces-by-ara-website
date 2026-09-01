@@ -27,7 +27,7 @@ const Homes = [
     id: 3,
     image: "/images/apartment-3.jpg",
     location: "Lekki Conservation Area",
-    type: "Semi-Furnished/ Furnished Private Masters Room in Shared Apartment",
+    type: "Semi-Furnished/Furnished Private Master's Room in Shared Apartment",
     price: "From N350,000/month",
   },
   {
@@ -42,8 +42,21 @@ const Homes = [
 export function AvailableHomesSection() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
+  const trackEvent = (eventName: string, location?: string) => {
+    if (typeof window !== "undefined") {
+      ;(window as any).gtag?.("event", eventName, {
+        section: "available_homes",
+        location,
+      })
+    }
+  }
+
   return (
-    <section ref={ref} className="py-20 lg:py-30 bg-secondary">
+    <section
+      id="available-homes"
+      ref={ref}
+      className="py-20 lg:py-30 bg-secondary"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
@@ -52,14 +65,18 @@ export function AvailableHomesSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Homes currently available in Lagos.
+            Available Ara Spaces in Lagos
           </h2>
+
           <p className="text-md text-muted-foreground leading-relaxed">
-            Our current Homes are shared apartments located within secure residential neighborhoods in Lagos. Residents have private rooms while sharing common spaces such as the kitchen and living areas. Each home is professionally managed and maintained by the Spaces by Ara team.
+            Explore our current Ara Spaces across Lagos, including private units,
+            shared apartments, furnished homes, semi furnished homes, and
+            unfurnished homes. Every home is professionally managed by Spaces by
+            Ara and designed for long term living.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {Homes.map((home, index) => (
             <div
               key={home.id}
@@ -69,34 +86,47 @@ export function AvailableHomesSection() {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               )}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="relative h-56 overflow-hidden">
                 <Image
                   src={home.image}
-                  alt={`Apartment in ${home.location}`}
+                  alt={`${home.type} in ${home.location}, Lagos`}
                   fill
                   className="object-cover img-hover-scale"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width:768px) 100vw, (max-width:1024px) 50vw, 25vw"
                 />
               </div>
+
               <div className="p-6">
                 <div className="flex items-center gap-2 text-muted-foreground mb-2">
                   <MapPin className="h-4 w-4" />
                   <span className="text-sm">{home.location}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+
+                <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug">
                   {home.type}
                 </h3>
-                <p className="text-olive dark:text-accent-lime font-medium mb-4">
+
+                <p className="text-olive dark:text-accent-lime font-semibold mb-4">
                   {home.price}
                 </p>
+
                 <Button
                   asChild
                   variant="outline"
                   className="w-full border-olive text-olive hover:bg-olive hover:text-white dark:border-accent-lime dark:text-accent-lime dark:hover:bg-accent-lime dark:hover:text-dark-green"
                 >
-                  <Link href="/spaces">View Space</Link>
+                  <Link
+                    href="https://www.instagram.com/spaces_by_ara"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackEvent("available_home_view_clicked", home.location)
+                    }
+                  >
+                    View Space
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -114,7 +144,12 @@ export function AvailableHomesSection() {
             size="lg"
             className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
           >
-            <Link href="/spaces">See Available Spaces</Link>
+            <Link
+              href="/spaces"
+              onClick={() => trackEvent("see_available_spaces_clicked")}
+            >
+              See Available Spaces
+            </Link>
           </Button>
         </div>
       </div>

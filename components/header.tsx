@@ -23,6 +23,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [mounted, setMounted] = React.useState(false)
+
   const pathname = usePathname()
   const { theme } = useTheme()
 
@@ -34,14 +35,21 @@ export function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10)
     }
+
     window.addEventListener("scroll", handleScroll)
+
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Close mobile menu on route change
   React.useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
+
+  const trackEvent = (eventName: string) => {
+  if (typeof window !== "undefined") {
+    ;(window as any).gtag?.("event", eventName)
+  }
+}
 
   return (
     <header
@@ -54,10 +62,16 @@ export function Header() {
     >
       <div className="container mx-auto h-full px-4 lg:px-8">
         <nav className="flex items-center justify-between h-full">
+
           {/* Logo */}
+
           <Link href="/" className="flex-shrink-0">
             <Image
-              src={mounted && theme === "dark" ? "/images/white logo.PNG" : "/images/logo.PNG"}
+              src={
+                mounted && theme === "dark"
+                  ? "/images/white logo.PNG"
+                  : "/images/logo.PNG"
+              }
               alt="Spaces by Ara"
               width={180}
               height={50}
@@ -67,37 +81,57 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation */}
+
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-base font-medium transition-colors hover:text-olive dark:hover:text-accent-lime",
-                  pathname === link.href
-                    ? "text-accent-lime:text-olive dark"
-                    : "text-foreground"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "relative text-base font-medium transition-colors pb-1",
+                    isActive
+                      ? "text-olive dark:text-accent-lime font-semibold"
+                      : "text-foreground hover:text-olive dark:hover:text-accent-lime"
+                  )}
+                >
+                  {link.label}
+
+                  {isActive && (
+                    <span className="absolute left-0 -bottom-1 h-0.5 w-full rounded-full bg-olive dark:bg-accent-lime" />
+                  )}
+                </Link>
+              )
+            })}
           </div>
 
           {/* Desktop Actions */}
+
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
+
             <Button
-              asChild
-              className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
-            >
-              <Link href="/spaces">Find a Space</Link>
-            </Button>
+  asChild
+  className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
+>
+  <Link
+    href="https://wa.link/hv3y8c"
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => trackEvent("header_make_enquiry_click")}
+  >
+    Get Started
+  </Link>
+</Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Actions */}
+
           <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
+
             <Button
               variant="ghost"
               size="icon"
@@ -116,34 +150,50 @@ export function Header() {
       </div>
 
       {/* Mobile Menu */}
+
       <div
         className={cn(
           "lg:hidden absolute top-20 left-0 right-0 bg-background border-b border-border shadow-lg transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          isMobileMenuOpen
+            ? "max-h-[500px] opacity-100"
+            : "max-h-0 opacity-0"
         )}
       >
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "text-lg font-medium py-2 transition-colors hover:text-olive dark:hover:text-accent-lime",
-                  pathname === link.href
-                    ? "text-olive dark:text-accent-lime"
-                    : "text-foreground"
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
+
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "rounded-lg px-3 py-3 text-lg font-medium transition-colors",
+                    isActive
+                      ? "bg-muted text-olive dark:text-accent-lime"
+                      : "text-foreground hover:bg-muted hover:text-olive dark:hover:text-accent-lime"
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+
             <Button
-              asChild
-              className="w-full mt-4 bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
-            >
-              <Link href="/spaces">Find a Space</Link>
-            </Button>
+  asChild
+  className="w-full mt-2 bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
+>
+  <Link
+    href="https://wa.link/hv3y8c"
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => trackEvent("header_make_enquiry_click")}
+  >
+    Get Started
+  </Link>
+</Button>
           </div>
         </div>
       </div>
