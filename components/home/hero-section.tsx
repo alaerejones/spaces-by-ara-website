@@ -56,7 +56,7 @@ sizes="100vw"
       </h1>      
   
       <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-2xl">      
-        Spaces by Ara is a residential facility management company for people looking to rent, manage, invest in, and grow residential properties across Lagos.     
+        Spaces by Ara is a facility management company for people looking to rent, manage, invest in, and grow residential properties across Lagos.     
       </p>      
   
       <div className="flex flex-col sm:flex-row gap-4">      

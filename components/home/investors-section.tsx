@@ -35,10 +35,13 @@ export function InvestorsSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Invest In Professional Residential Property Management
+            Explore Our Invesment Opportunities
           </h2>
           <p className="text-md text-muted-foreground leading-relaxed">
-            Choose how you want to invest. You can invest with funds or with an existing property. Spaces by Ara manages tenants, operations, and income delivery.
+            Invest in professionally managed residential property in Lagos through structured investment opportunities designed for long term value.
+          </p>
+          <p className="text-md text-muted-foreground leading-relaxed">
+            Choose how you want to invest.
           </p>
         </div>
 

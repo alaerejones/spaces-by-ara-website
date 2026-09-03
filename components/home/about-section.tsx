@@ -22,15 +22,15 @@ export function AboutSection() {
 
           <div className="space-y-6 text-base text-muted-foreground leading-relaxed">
             <p>
-              Spaces by Ara is a residential facility management company creating better living experiences across Lagos through professionally managed monthly rental apartments and homes.
+              Spaces by Ara is building a better way to live, own, and manage residential properties in Lagos.
             </p>
 
             <p>
-              We manage homes people can move into, help property owners keep residential buildings professionally managed, create residential property investment opportunities, and work with trusted service partners who keep our properties running smoothly every day.
+              We combine professionally managed monthly rental homes, residential facility management, and property investment into one ecosystem that works for tenants, property owners, investors, and trusted service partners.
             </p>
 
             <p>
-              We believe better homes create better lives, and that managing residential properties well should benefit residents, property owners, investors, and service partners alike.
+              Every Space is managed with long term living in mind, because better homes create better experiences.
             </p>
           </div>
         </div>
