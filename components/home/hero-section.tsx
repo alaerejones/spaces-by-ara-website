@@ -29,7 +29,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-2 sm:pt-0">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-lagos-apartment.jpg"
@@ -50,12 +50,12 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-[25px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">
+          <h1 className="text-[22px] sm:text-[30px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[108%] mb-4 max-w-[12ch] sm:max-w-none">
             Professionally Managed Monthly Rental Homes in Lagos
           </h1>
 
-          <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-2xl">
-            Spaces by Ara is a residential facility management company creating better living experiences across Lagos. We provide professionally managed monthly rental homes for long term living, manage residential properties with care, create investment opportunities, and build service partnerships that strengthen Lagos' residential property ecosystem
+          <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-xl md:max-w-2xl">
+            Spaces by Ara is a residential facility management company creating better living experiences across Lagos. We provide professionally managed monthly rental homes for long term living, manage residential properties with care, create investment opportunities, and build service partnerships across Lagos.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -87,11 +87,10 @@ export function HeroSection() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
         <button
           onClick={() => scrollToNextSection("hero_scroll")}
-          className="flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors"
+          className="flex items-center justify-center text-white/70 hover:text-white transition-colors"
           aria-label="Scroll down"
         >
-          <span className="text-sm">Scroll</span>
-          <ChevronDown className="h-5 w-5" />
+          <ChevronDown className="h-6 w-6" />
         </button>
       </div>
     </section>
