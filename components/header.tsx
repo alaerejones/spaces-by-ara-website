@@ -4,7 +4,6 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { useTheme } from "next-themes"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -22,14 +21,8 @@ const navLinks = [
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
-  const [mounted, setMounted] = React.useState(false)
 
   const pathname = usePathname()
-  const { theme } = useTheme()
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -46,10 +39,10 @@ export function Header() {
   }, [pathname])
 
   const trackEvent = (eventName: string) => {
-  if (typeof window !== "undefined") {
-    ;(window as any).gtag?.("event", eventName)
+    if (typeof window !== "undefined") {
+      ;(window as any).gtag?.("event", eventName)
+    }
   }
-}
 
   return (
     <header
@@ -62,25 +55,26 @@ export function Header() {
     >
       <div className="container mx-auto h-full px-4 lg:px-8">
         <nav className="flex items-center justify-between h-full">
-
-          {/* Logo */}
-
           <Link href="/" className="flex-shrink-0">
-            <Image
-              src={
-                mounted && theme === "dark"
-                  ? "/images/white logo.PNG"
-                  : "/images/logo.PNG"
-              }
-              alt="Spaces by Ara"
-              width={180}
-              height={50}
-              className="h-10 w-auto"
-              priority
-            />
+            <>
+              <Image
+                src="/images/logo.PNG"
+                alt="Spaces by Ara"
+                width={180}
+                height={50}
+                className="h-10 w-auto dark:hidden"
+                priority
+              />
+              <Image
+                src="/images/white logo.PNG"
+                alt="Spaces by Ara"
+                width={180}
+                height={50}
+                className="hidden h-10 w-auto dark:block"
+                priority
+              />
+            </>
           </Link>
-
-          {/* Desktop Navigation */}
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => {
@@ -107,27 +101,23 @@ export function Header() {
             })}
           </div>
 
-          {/* Desktop Actions */}
-
           <div className="hidden lg:flex items-center gap-4">
             <ThemeToggle />
 
             <Button
-  asChild
-  className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
->
-  <Link
-    href="https://wa.link/hv3y8c"
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={() => trackEvent("header_make_enquiry_click")}
-  >
-    Get Started
-  </Link>
-</Button>
+              asChild
+              className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
+            >
+              <Link
+                href="https://wa.link/hv3y8c"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("header_make_enquiry_click")}
+              >
+                Get Started
+              </Link>
+            </Button>
           </div>
-
-          {/* Mobile Actions */}
 
           <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
@@ -149,8 +139,6 @@ export function Header() {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
-
       <div
         className={cn(
           "lg:hidden absolute top-20 left-0 right-0 bg-background border-b border-border shadow-lg transition-all duration-300 overflow-hidden",
@@ -161,7 +149,6 @@ export function Header() {
       >
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4">
-
             {navLinks.map((link) => {
               const isActive = pathname === link.href
 
@@ -182,18 +169,18 @@ export function Header() {
             })}
 
             <Button
-  asChild
-  className="w-full mt-2 bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
->
-  <Link
-    href="https://wa.link/hv3y8c"
-    target="_blank"
-    rel="noopener noreferrer"
-    onClick={() => trackEvent("header_make_enquiry_click")}
-  >
-    Get Started
-  </Link>
-</Button>
+              asChild
+              className="w-full mt-2 bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
+            >
+              <Link
+                href="https://wa.link/hv3y8c"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("header_make_enquiry_click")}
+              >
+                Get Started
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
