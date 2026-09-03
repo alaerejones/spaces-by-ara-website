@@ -27,7 +27,7 @@ export function WhoIsFor() {
               isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
             )}
           >
-            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-8">
+            <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-8">
               Who this service is for.
             </h2>
 

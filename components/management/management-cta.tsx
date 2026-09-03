@@ -19,7 +19,7 @@ export function ManagementCta() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-white leading-[115%] mb-6">
+          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-white leading-[115%] mb-6">
             Let us manage your property.
           </h2>
           <p className="text-md text-white/80 leading-relaxed mb-10">

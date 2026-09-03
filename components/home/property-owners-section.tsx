@@ -47,7 +47,7 @@ export function PropertyOwnersSection() {
               isInView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"
             )}
           >
-            <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
+            <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
               Have Your Residential Property Professionally Managed
             </h2>
 

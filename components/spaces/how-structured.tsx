@@ -38,7 +38,7 @@ export function HowStructured() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%]">
+          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%]">
             How our homes are structured.
           </h2>
         </div>

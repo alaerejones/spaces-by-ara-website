@@ -102,7 +102,7 @@ export function ContactForm() {
       )}
     >
       <div className="mb-8">
-        <h2 className="text-[21px] md:text-[25px] font-bold text-foreground mb-2">
+        <h2 className="text-[25px] md:text-[25px] font-bold text-foreground mb-2">
           Send us an enquiry
         </h2>
         <p className="text-sm text-muted-foreground">

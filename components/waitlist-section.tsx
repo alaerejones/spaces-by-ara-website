@@ -61,7 +61,7 @@ if (!response.ok) {
               {subtitle}
             </p>
           )}
-          <h2 className="text-[21px] md:text-[25px] font-bold text-foreground leading-[120%] mb-4">
+          <h2 className="text-[25px] md:text-[25px] font-bold text-foreground leading-[120%] mb-4">
             {title}
           </h2>
           {description && (
