@@ -52,7 +52,7 @@ sizes="100vw"
       }`}      
     >      
       <h1 className="text-[32px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">      
-        Professionally Managed Monthly Rental Apartments & Homes in Lagos       
+        Professionally Managed Monthly Rental Apartments & Homes     
       </h1>      
   
       <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-2xl">      
