@@ -51,7 +51,7 @@ sizes="100vw"
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"      
       }`}      
     >      
-      <h1 className="text-[28px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">      
+      <h1 className="text-[32px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">      
         Professionally Managed Monthly Rental Apartments & Homes in Lagos       
       </h1>      
   

@@ -19,7 +19,7 @@ export function ContactHero() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h1 className="text-[32px] md:text-[40px] lg:text-[48px] font-bold text-foreground leading-[120%] mb-6">
+          <h1 className="text-[32px] md:text-[33px] lg:text-[52px] font-bold text-foreground leading-[120%] mb-6">
             Get in Touch
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed">
