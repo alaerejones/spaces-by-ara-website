@@ -6,8 +6,8 @@ import { InvestorsSection } from "@/components/home/investors-section"
 import { PartnersSection } from "@/components/home/partners-section"
 import { AboutSection } from "@/components/home/about-section"
 import { FaqSection } from "@/components/home/faq-section"
-import { WaitlistSection } from "@/components/waitlist-section"
-import { CtaSection } from "@/components/home/cta-section"
+// import { WaitlistSection } from "@/components/waitlist-section"
+// import { CtaSection } from "@/components/home/cta-section"
 
 export default function HomePage() {
   return (
@@ -20,10 +20,10 @@ export default function HomePage() {
       <PartnersSection />
       <AboutSection />
       <FaqSection />
-      <WaitlistSection
+      {/* <WaitlistSection
         title="Stay Updated on New Opportunities"
         description="Never miss out on new properties and exclusive offers. Join our community today."
-      />
+      /> */}
       {/* <CtaSection /> */}
     </>
   )
