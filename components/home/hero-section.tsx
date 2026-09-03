@@ -29,7 +29,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center pt-2 sm:pt-0">
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-lagos-apartment.jpg"
@@ -50,12 +50,12 @@ export function HeroSection() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-[22px] sm:text-[30px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[108%] mb-4 max-w-[12ch] sm:max-w-none">
+          <h1 className="text-[32px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[100%] mb-5 max-w-[16ch] md:max-w-none">
             Professionally Managed Monthly Rental Homes in Lagos
           </h1>
 
-          <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-xl md:max-w-2xl">
-            Spaces by Ara is a residential facility management company creating better living experiences across Lagos. We provide professionally managed monthly rental homes for long term living, manage residential properties with care, create investment opportunities, and build service partnerships across Lagos.
+          <p className="text-[17px] md:text-lg text-white/90 leading-[1.45] md:leading-relaxed mb-8 max-w-2xl">
+            Spaces by Ara is a residential facility management company creating better living experiences across Lagos. We provide professionally managed monthly rental homes for long term living, manage residential properties with care, create investment opportunities, and build service partnerships that strengthen Lagos' residential property ecosystem
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
