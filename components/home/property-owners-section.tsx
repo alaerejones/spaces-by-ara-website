@@ -34,7 +34,7 @@ export function PropertyOwnersSection() {
           >
             <Image
               src="/images/property-owner.jpg"
-              alt="Residential property professionally managed by Spaces by Ara in Lagos"
+              alt="Residential property managed by Spaces by Ara in Lagos"
               fill
               className="object-cover img-hover-scale"
               sizes="(max-width:1024px) 100vw, 50vw"
@@ -48,11 +48,11 @@ export function PropertyOwnersSection() {
             )}
           >
             <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-              Residential Facility Management for Property Owners in Lagos
+              Have Your Residential Property Professionally Managed in Lagos
             </h2>
 
             <p className="text-md text-muted-foreground leading-relaxed mb-8">
-              Spaces by Ara professionally manages residential properties across Lagos, keeping homes well maintained, resident ready, and professionally managed every day. We coordinate maintenance, oversee day to day property operations, support a better resident experience, and help property owners protect the long term value of their investment.
+              Your property deserves more than occasional supervision. Spaces by Ara is a residential facility management company that keeps homes well maintained, resident ready, and professionally managed every day. We coordinate maintenance, oversee day to day operations, support better resident experiences, and help protect the long term value of your property.
             </p>
 
             <Button
@@ -62,9 +62,9 @@ export function PropertyOwnersSection() {
             >
               <Link
                 href="/management"
-                onClick={() => trackEvent("management_page_open")}
+                onClick={() => trackEvent("property_management_learn_more")}
               >
-                Manage My Property
+                Have My Property Managed
               </Link>
             </Button>
           </div>
