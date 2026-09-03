@@ -17,17 +17,20 @@ export function AboutSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-6">
-            About Spaces by Ara.
+            About Spaces by Ara
           </h2>
-          <div className="space-y-6 text-md text-muted-foreground leading-relaxed">
+
+          <div className="space-y-6 text-base text-muted-foreground leading-relaxed">
             <p>
-              Spaces by Ara is a facility management company focused on improving how long term renting works in Nigeria.
+              Spaces by Ara is a residential facility management company creating better living experiences across Lagos through professionally managed monthly rental apartments and homes.
             </p>
+
             <p>
-              We manage residential Homes and structure them for people who earn monthly and want stable housing without the financial pressure of annual rent payments.
+              We manage homes people can move into, help property owners keep residential buildings professionally managed, create residential property investment opportunities, and work with trusted service partners who keep our properties running smoothly every day.
             </p>
+
             <p>
-              Our team oversees tenant structure, facility maintenance, and operational management to ensure each apartment is safe, organized, and well maintained.
+              We believe better homes create better lives, and that managing residential properties well should benefit residents, property owners, investors, and service partners alike.
             </p>
           </div>
         </div>

@@ -70,7 +70,7 @@ export function PartnersSection() {
             )}
           >
             <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-              Become a Service Partner in Lagos.
+              Become a Service Partner.
             </h2>
 
             <p className="text-base text-muted-foreground leading-relaxed mb-6">
@@ -109,7 +109,7 @@ export function PartnersSection() {
                 href="/partners"
                 onClick={() => trackEvent("partners_page_open")}
               >
-                Partner With Us
+                Learn More
               </Link>
             </Button>
           </div>
