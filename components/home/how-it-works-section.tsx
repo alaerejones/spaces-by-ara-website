@@ -8,27 +8,27 @@ import { cn } from "@/lib/utils"
 const features = [
   {
     icon: Home,
-    title: "Live better",
+    title: "Rent an Ara Space",
     description:
-      "Professionally managed monthly rental homes in Lagos for people looking for stable long term living.",
+      "Move into professionally managed monthly rental apartments and homes in secure, accessible locations across Lagos. Available for long term living with furnished and unfurnished options.",
   },
   {
     icon: Building2,
-    title: "Own better",
+    title: "Have Your Property Managed",
     description:
-      "Residential property management that keeps your property well maintained, professionally managed, and resident ready.",
+      "Keep your residential property occupied, maintained, and professionally managed while we handle day to day facility operations and resident experience.",
   },
   {
     icon: Landmark,
-    title: "Invest better",
+    title: "Explore Investment Opportunities",
     description:
-      "Investment opportunities built around professionally managed residential properties with long term value in mind.",
+      "Access residential property investment opportunities built around professionally managed homes with long term value in Lagos.",
   },
   {
     icon: Handshake,
-    title: "Grow together",
+    title: "Become a Service Partner",
     description:
-      "Service partnerships that strengthen how residential properties are managed and experienced across Lagos.",
+      "Work with Spaces by Ara as a trusted service partner supporting maintenance, operations, and resident experiences across our properties.",
   },
 ]
 
@@ -48,15 +48,9 @@ export function HowItWorksSection() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-4">
+          <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%]">
             One company. Four ways to be part of it.
           </h2>
-
-          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-            Whether you're looking for a home, managing a property, investing,
-            or partnering with us, Spaces by Ara creates better residential
-            experiences across Lagos.
-          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
