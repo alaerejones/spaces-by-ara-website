@@ -22,13 +22,13 @@ const features = [
     icon: Landmark,
     title: "Explore Investment Opportunities",
     description:
-      "Access residential property investment opportunities built around professionally managed homes with long term value in Lagos.",
+      "Access residential property investment opportunities built around professionally managed homes with long term value in Lagos State.",
   },
   {
     icon: Handshake,
     title: "Become a Service Partner",
     description:
-      "Work with Spaces by Ara as a trusted service partner supporting maintenance, operations, and resident experiences across our properties.",
+      "Work with Spaces by Ara as a trusted service partner supporting maintenance, repairs, cleaning, amongst other services that improves our resident experiences across our properties.",
   },
 ]
 
