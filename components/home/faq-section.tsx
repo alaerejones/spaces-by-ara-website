@@ -87,7 +87,7 @@ export function FaqSection() {
               size="lg"
               className="border-olive text-olive hover:bg-olive hover:text-white dark:border-accent-lime dark:text-accent-lime dark:hover:bg-accent-lime dark:hover:text-dark-green px-8"
             >
-              <Link href="/faqs">View All FAQs</Link>
+              <Link href="/faqs">Learn More</Link>
             </Button>
           </div>
         </div>

@@ -79,7 +79,7 @@ export function InvestorsSection() {
             className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 px-8"
           >
             <Link href="/invest">
-              View Investment Details
+              Learn More
             </Link>
           </Button>
         </div>

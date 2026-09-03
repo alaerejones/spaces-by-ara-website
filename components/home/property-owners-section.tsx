@@ -64,7 +64,7 @@ export function PropertyOwnersSection() {
                 href="/management"
                 onClick={() => trackEvent("property_management_learn_more")}
               >
-                Have My Property Managed
+                Learn More
               </Link>
             </Button>
           </div>
