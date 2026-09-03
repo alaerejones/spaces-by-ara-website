@@ -52,11 +52,11 @@ sizes="100vw"
       }`}      
     >      
       <h1 className="text-[25px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">      
-        Professionally Managed Monthly Rental Homes in Lagos      
+        Professionally Managed Monthly Rental Apartments & Homes in Lagos       
       </h1>      
   
       <p className="text-md md:text-lg text-white/90 leading-relaxed mb-8 max-w-2xl">      
-        Spaces by Ara is a residential facility management company creating better living experiences across Lagos. We provide professionally managed monthly rental homes for long term living, manage residential properties with care, create investment opportunities, and build service partnerships that strengthen Lagos' residential property ecosystem      
+        Spaces by Ara is a residential facility management company for people looking to rent, manage, invest in, and grow residential properties across Lagos.     
       </p>      
   
       <div className="flex flex-col sm:flex-row gap-4">      
