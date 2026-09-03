@@ -68,19 +68,21 @@ sizes="100vw"
           See How It Works      
         </Button>      
   
-        <Button      
-          asChild      
-          size="lg"      
-          variant="outline"      
-          className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base font-medium px-7 py-2 bg-white/5"      
-        >      
-          <Link      
-            href="/management"      
-            onClick={() => trackEvent("hero_management_page_open")}      
-          >      
-            Have My Property Managed      
-          </Link>      
-        </Button>      
+        <Button
+  asChild
+  size="lg"
+  variant="outline"
+  className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base font-medium px-7 py-2 bg-white/5"
+>
+  <Link
+    href="https://wa.link/hv3y8c"
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={() => trackEvent("hero_get_started_click")}
+  >
+    Get Started
+  </Link>
+</Button> 
       </div>      
     </div>      
   </div>      
