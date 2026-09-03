@@ -48,7 +48,7 @@ export function PropertyOwnersSection() {
             )}
           >
             <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-              Have Your Residential Property Professionally Managed in Lagos
+              Have Your Residential Property Professionally Managed
             </h2>
 
             <p className="text-md text-muted-foreground leading-relaxed mb-8">

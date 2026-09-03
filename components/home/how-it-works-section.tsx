@@ -49,7 +49,7 @@ export function HowItWorksSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%]">
-            One company. Four ways to be part of it.
+            One Company. Four Ways To Be Part of It.
           </h2>
         </div>
 
