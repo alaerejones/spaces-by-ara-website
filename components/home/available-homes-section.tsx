@@ -65,11 +65,11 @@ export function AvailableHomesSection() {
           )}
         >
           <h2 className="text-[21px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[120%] mb-5">
-            Available Ara Spaces in Lagos
+            Available Ara Spaces
           </h2>
 
           <p className="text-md text-muted-foreground leading-relaxed">
-            Explore our current Ara Spaces across Lagos, including private units,
+            Explore our current vacancies across Lagos, including private units,
             shared apartments, furnished homes, semi furnished homes, and
             unfurnished homes. Every home is professionally managed by Spaces by
             Ara and designed for long term living.
@@ -125,7 +125,7 @@ export function AvailableHomesSection() {
                       trackEvent("available_home_view_clicked", home.location)
                     }
                   >
-                    View Space
+                    View more vacant Spaces
                   </Link>
                 </Button>
               </div>
