@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Spaces by Ara | Monthly Homes in Lagos',
+  title: 'Spaces by Ara | Monthly Rental Apartments and Homes, Residential Property Management & Investment in Lagos',
   description: 'Spaces by Ara provides professionally managed residential Homes in Lagos designed for long term living with monthly payment structures.',
   keywords: ['Lagos apartments', 'monthly rent Lagos', 'facility management Nigeria', 'shared apartments Lagos', 'residential Homes Lagos'],
   authors: [{ name: 'Spaces by Ara' }],
