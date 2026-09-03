@@ -42,6 +42,9 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
           {/* Logo and Description */}
           <div className="lg:col-span-1">
+            <p className="text-white/80 text-sm leading-relaxed mb-5">
+              Think Monthly Rent. Think....
+            </p>
             <Link href="/" className="inline-block mb-5">
               <Image
                 src="/images/white logo.PNG"
@@ -51,9 +54,6 @@ export function Footer() {
                 className="h-9 w-auto brightness-110"
               />
             </Link>
-            <p className="text-white/80 text-sm leading-relaxed mb-5">
-              Long Stay. Affordable Monthly Pay
-            </p>
             {/* Social Links */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
