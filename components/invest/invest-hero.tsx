@@ -32,6 +32,7 @@ export function InvestHero() {
 
   return (
     <section className="relative min-h-[calc(100vh-80px)] flex items-center">
+      {/* Background */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/investor-meeting.jpg"
@@ -45,6 +46,7 @@ export function InvestHero() {
         <div className="absolute inset-0 bg-gradient-to-r from-dark-green/80 to-transparent" />
       </div>
 
+      {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div
           className={`max-w-2xl transition-all duration-700 ${
@@ -59,7 +61,8 @@ export function InvestHero() {
             Invest in professionally managed residential properties across Lagos with investment models designed for long term value and recurring income.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 sm:flex-wrap">
+            {/* Explore */}
             <Button
               size="lg"
               onClick={scrollToInvestmentOptions}
@@ -68,6 +71,7 @@ export function InvestHero() {
               Explore Investment Options
             </Button>
 
+            {/* WhatsApp */}
             <Button
               asChild
               size="lg"
@@ -81,6 +85,23 @@ export function InvestHero() {
                 onClick={() => trackEvent("invest_whatsapp")}
               >
                 Invest Now
+              </Link>
+            </Button>
+
+            {/* Brochure */}
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white bg-white/10 text-white hover:bg-white hover:text-dark-green text-base font-semibold px-7 py-2"
+            >
+              <Link
+                href="/documents/investor-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("invest_brochure_hero")}
+              >
+                Download Brochure
               </Link>
             </Button>
           </div>
