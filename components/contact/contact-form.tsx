@@ -18,9 +18,11 @@ const enquiryTypes = [
 
 export function ContactForm() {
   const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.3 })
+
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [submitted, setSubmitted] = React.useState(false)
   const [error, setError] = React.useState(false)
+
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -39,14 +41,25 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
     setIsSubmitting(true)
     setError(false)
 
+    const whatsappLinks: Record<string, string> = {
+      "Request Property Viewing": "https://wa.link/zuwgh9",
+      "Property Booking / Reservation": "https://wa.link/zuwgh9",
+      "Investment Enquiry": "https://wa.link/vb05el",
+      "Facility Management Enquiry": "https://wa.link/zz4zm7",
+      "Service Partnership Enquiry": "https://wa.link/tvfwhd",
+      "General Enquiry": "https://wa.link/hv3y8c",
+    }
+
     try {
-      // 1. Save to Supabase via API route
-      const response = await fetch('/api/enquiry', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      await fetch("/api/enquiry", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
@@ -55,25 +68,33 @@ export function ContactForm() {
         }),
       })
 
-      if (!response.ok) {
-        console.error('error')
-      }
-
-      // 2. Open WhatsApp with pre-filled message
       const waMessage =
         `🏠 *New Enquiry — Spaces by Ara*\n\n` +
-        `*Type:* ${formData.enquiryType || 'Not specified'}\n` +
+        `*Type:* ${formData.enquiryType}\n` +
         `*Name:* ${formData.name}\n` +
         `*Phone:* ${formData.phone}\n` +
         `*Email:* ${formData.email}\n` +
-        `*Property:* ${formData.property || 'Not specified'}\n` +
-        `*Message:* ${formData.message || 'None'}\n\n` +
+        `*Property:* ${formData.property || "Not specified"}\n` +
+        `*Message:* ${formData.message || "None"}\n\n` +
         `_Submitted via spacesbyara.com_`
 
-      const waUrl = `https://wa.me/2348058092401?text=${encodeURIComponent(waMessage)}`
-      window.open(waUrl, '_blank')
+      const waLink =
+        whatsappLinks[formData.enquiryType] || "https://wa.link/hv3y8c"
 
-      // 3. Reset and show success
+      window.open(
+        `${waLink}?text=${encodeURIComponent(waMessage)}`,
+        "_blank"
+      )
+
+      if (typeof window !== "undefined" && (window as any).gtag) {
+        ;(window as any).gtag("event", "contact_form_submit", {
+          event_category: "Lead",
+          event_label: formData.enquiryType || "General",
+        })
+      }
+
+      setSubmitted(true)
+
       setFormData({
         name: "",
         email: "",
@@ -82,11 +103,10 @@ export function ContactForm() {
         property: "",
         message: "",
       })
-      setSubmitted(true)
-      setTimeout(() => setSubmitted(false), 6000)
 
+      setTimeout(() => setSubmitted(false), 5000)
     } catch (err) {
-      console.error('Form submission error:', err)
+      console.error("Form submission error:", err)
       setError(true)
     } finally {
       setIsSubmitting(false)
@@ -95,6 +115,7 @@ export function ContactForm() {
 
   return (
     <div
+      id="contact-form"
       ref={ref}
       className={cn(
         "transition-all duration-700",
@@ -102,17 +123,16 @@ export function ContactForm() {
       )}
     >
       <div className="mb-8">
-        <h2 className="text-[25px] md:text-[25px] font-bold text-foreground mb-2">
-          Send us an enquiry
+        <h2 className="text-[25px] md:text-[28px] lg:text-[36px] font-bold text-foreground mb-2">
+          Send Us an Enquiry
         </h2>
-        <p className="text-sm text-muted-foreground">
-          Fill in the form below. We'll respond via WhatsApp within 24 hours.
+
+        <p className="text-base text-muted-foreground leading-relaxed">
+          Tell us what you're looking for and we'll continue the conversation on WhatsApp.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-
-        {/* Name and Email */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -121,15 +141,14 @@ export function ContactForm() {
             <Input
               id="name"
               name="name"
-              type="text"
               required
               value={formData.name}
               onChange={handleChange}
               placeholder="Your full name"
-              className="bg-background border-border"
               disabled={isSubmitting}
             />
           </div>
+
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
               Email Address *
@@ -142,13 +161,11 @@ export function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               placeholder="your@email.com"
-              className="bg-background border-border"
               disabled={isSubmitting}
             />
           </div>
         </div>
 
-        {/* Phone and Enquiry Type */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
@@ -162,14 +179,15 @@ export function ContactForm() {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+234 XXX XXX XXXX"
-              className="bg-background border-border"
               disabled={isSubmitting}
             />
           </div>
+
           <div>
             <label htmlFor="enquiryType" className="block text-sm font-medium text-foreground mb-2">
-              Enquiry Type *
+              What can we help you with? *
             </label>
+
             <select
               id="enquiryType"
               name="enquiryType"
@@ -177,64 +195,58 @@ export function ContactForm() {
               value={formData.enquiryType}
               onChange={handleChange}
               disabled={isSubmitting}
-              className="w-full px-3 py-2 rounded-md border border-border bg-background text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-accent-lime"
+              className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-olive dark:focus:ring-accent-lime"
             >
-              <option value="">Select enquiry type...</option>
+              <option value="">Select an option</option>
               {enquiryTypes.map((type) => (
-                <option key={type} value={type}>{type}</option>
+                <option key={type}>{type}</option>
               ))}
             </select>
           </div>
         </div>
 
-        {/* Property of Interest */}
         <div>
           <label htmlFor="property" className="block text-sm font-medium text-foreground mb-2">
-            Property of Interest <span className="text-muted-foreground font-normal">(optional)</span>
+            Property of Interest
           </label>
           <Input
             id="property"
             name="property"
-            type="text"
             value={formData.property}
             onChange={handleChange}
-            placeholder="e.g. Ara's Premium 2 Bedroom, Boys Quarter Unit..."
-            className="bg-background border-border"
+            placeholder="Optional"
             disabled={isSubmitting}
           />
         </div>
 
-        {/* Message */}
         <div>
           <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-            Message <span className="text-muted-foreground font-normal">(optional)</span>
+            Tell us more
           </label>
           <Textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us more about your enquiry, preferred dates, budget, or any questions..."
-            className="bg-background border-border min-h-32"
+            placeholder="Tell us more about what you're looking for..."
+            className="min-h-32"
             disabled={isSubmitting}
           />
         </div>
 
-        {/* Success message */}
         {submitted && (
-          <div className="p-4 bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-900/50 rounded-lg">
-            <p className="text-sm text-green-800 dark:text-green-200 font-medium">
-              ✓ Enquiry sent successfully!
+          <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-900/50 dark:bg-green-950/30">
+            <p className="text-sm font-medium text-green-800 dark:text-green-200">
+              ✓ You're all set.
             </p>
-            <p className="text-sm text-green-700 dark:text-green-300 mt-1">
-              We have recieved your message, our team will be in touch within 24 hours.
+            <p className="mt-1 text-sm text-green-700 dark:text-green-300">
+              We've prepared your message and opened the right WhatsApp conversation for your enquiry.
             </p>
           </div>
         )}
 
-        {/* Error message */}
         {error && (
-          <div className="p-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 rounded-lg">
+          <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-900/50 dark:bg-red-950/30">
             <p className="text-sm text-red-800 dark:text-red-200">
               Something went wrong. Please try again or contact us directly on WhatsApp.
             </p>
@@ -244,15 +256,18 @@ export function ContactForm() {
         <Button
           type="submit"
           disabled={isSubmitting || submitted}
-          className="w-full bg-olive text-white hover:bg-dark-green dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90 py-6 text-base"
+          className="w-full bg-olive py-6 text-base text-white hover:bg-dark-green dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
         >
-          {isSubmitting ? "Sending..." : submitted ? "Enquiry Sent ✓" : "Send"}
+          {isSubmitting
+            ? "Sending..."
+            : submitted
+            ? "Message Prepared ✓"
+            : "Continue to WhatsApp"}
         </Button>
 
-        <p className="text-xs text-muted-foreground text-center">
-          By submitting you agree to be contacted by Spaces by Ara via WhatsApp or email.
+        <p className="text-center text-xs text-muted-foreground">
+          We'll take you to the correct WhatsApp conversation based on your enquiry.
         </p>
-
       </form>
     </div>
   )

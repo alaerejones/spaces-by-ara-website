@@ -80,7 +80,7 @@ export function PartnersHero() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("partners_whatsapp")}
               >
-                Partner With Us
+                Become a Service Partner
               </Link>
             </Button>
           </div>
