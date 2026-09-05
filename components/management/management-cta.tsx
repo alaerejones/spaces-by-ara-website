@@ -1,14 +1,22 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
-import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
 export function ManagementCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openModal } = useEnquiryModal()
+
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      ;(window as any).gtag("event", eventName, {
+        event_category: "CTA",
+        event_label: "Management CTA",
+      })
+    }
+  }
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
@@ -19,19 +27,27 @@ export function ManagementCta() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-white leading-[115%] mb-6">
-            Let us manage your property.
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-white leading-[120%] mb-5">
+            Ready to Have Your Property Managed?
           </h2>
-          <p className="text-md text-white/80 leading-relaxed mb-10">
-            Schedule a discovery call to discuss how Spaces by Ara can help
-            manage your residential property.
+
+          <p className="text-base md:text-lg text-white/80 leading-relaxed mb-10">
+            Speak with our team about your residential property and see how Spaces by Ara can help manage it professionally.
           </p>
+
           <Button
-            onClick={() => openModal({ enquiryType: "Facility Management Enquiry" })}
+            asChild
             size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
+            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 text-base font-semibold px-10 py-2"
           >
-            Book a Discovery Call
+            <Link
+              href="https://wa.link/zz4zm7"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("management_cta_whatsapp")}
+            >
+              Have My Property Managed
+            </Link>
           </Button>
         </div>
       </div>

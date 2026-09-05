@@ -2,104 +2,88 @@
 
 import * as React from "react"
 import Image from "next/image"
-import Script from "next/script"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export function ManagementHero() {
   const [isVisible, setIsVisible] = React.useState(false)
-  const [calendarReady, setCalendarReady] = React.useState(false)
 
   React.useEffect(() => {
     setIsVisible(true)
   }, [])
 
-  const handleBookingClick = () => {
-    if (calendarReady) {
-      const target = document.getElementById('cal-hero')
-      if (target) {
-        const calBtn = target.querySelector('button, a') as HTMLElement
-        if (calBtn) { calBtn.click(); return }
-      }
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      ;(window as any).gtag("event", eventName, {
+        event_category: "CTA",
+        event_label: "Management Hero",
+      })
     }
-    window.open('https://calendar.app.google/h4MZ96LK9L5PWL8E8', '_blank')
+  }
+
+  const scrollToServices = () => {
+    trackEvent("management_view_services")
+
+    document.getElementById("management-services")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    })
   }
 
   return (
-    <section className="relative min-h-[calc(100vh-80px)] flex items-center">
-
-      {/* Google Calendar Script */}
-      <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
-      <Script
-        src="https://calendar.google.com/calendar/scheduling-button-script.js"
-        strategy="lazyOnload"
-        onLoad={() => {
-          if (typeof window !== 'undefined' && (window as any).calendar) {
-            const btn = document.getElementById('cal-hero')
-            if (btn) {
-              ;(window as any).calendar.schedulingButton.load({
-                url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0EPe6QWxzLLC8cUvkxSabr7xM-JE_gCMKkHapG54GNdZN3JBIkDY52BAsRyuLgakohYe7HccFl?gv=true',
-                color: '#CCFB6E',
-                label: 'Book a Discovery Call',
-                target: btn,
-              })
-              setCalendarReady(true)
-            }
-          }
-        }}
-      />
-
-      {/* Hidden calendar target — fully invisible and non-interactive */}
-      <div
-        id="cal-hero"
-        aria-hidden="true"
-        style={{
-          position: 'fixed',
-          top: '-9999px',
-          left: '-9999px',
-          width: '1px',
-          height: '1px',
-          overflow: 'hidden',
-          opacity: 0,
-          pointerEvents: 'none',
-        }}
-      />
-
-      {/* Background Image */}
+    <section className="relative min-h-[calc(100vh-80px)] flex items-center overflow-x-hidden">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/property-owner.jpg"
-          alt="facility management services"
+          alt="Residential property management in Lagos"
           fill
-          className="object-cover"
           priority
           sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-green/90 via-dark-green/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-dark-green/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-dark-green/80 to-transparent" />
       </div>
 
-      {/* Content */}
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <div
-          className={`max-w-2xl transition-all duration-700 ${
+          className={`max-w-2xl w-full transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <h1 className="text-[32px] md:text-[33px] lg:text-[52px] font-bold text-white leading-[115%] mb-5 text-balance">
-            Professional residential facility management.
+          <h1 className="text-[32px] md:text-[44px] lg:text-[56px] font-bold text-white leading-[110%] mb-5 text-balance">
+            Manage Your Property with Spaces by Ara
           </h1>
-          <p className="text-md md:text-l text-white/90 leading-relaxed mb-8 max-w-xl">
-            Spaces by Ara provides management services for residential buildings
-            in Lagos. Our role is to ensure properties operate efficiently while
-            maintaining strong tenant structure and facility oversight.
+
+          <p className="text-base md:text-lg text-white/90 leading-relaxed mb-8 max-w-xl">
+            Residential property management across Lagos, including tenant oversight, facility management, maintenance coordination, and day to day operations that help protect your property's long term value.
           </p>
-          <Button
-            size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-7 py-2"
-            onClick={handleBookingClick}
-          >
-            Book a Discovery Call
-          </Button>
+
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+            <Button
+              size="lg"
+              onClick={scrollToServices}
+              className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 text-base font-semibold px-7 py-2"
+            >
+              Explore Our Services
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white bg-white/10 text-white hover:bg-white hover:text-dark-green text-base font-semibold px-7 py-2"
+            >
+              <Link
+                href="https://wa.link/zz4zm7"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("management_whatsapp")}
+              >
+                Have My Property Managed
+              </Link>
+            </Button>
+          </div>
         </div>
       </div>
     </section>
