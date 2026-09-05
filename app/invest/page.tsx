@@ -16,11 +16,6 @@ export default function InvestPage() {
       <InvestHero />
       <WhyInvest />
       <InvestmentStructures />
-      <WaitlistSection
-        title="Ready to Start Investing?"
-        description="Join our investor waitlist and receive updates on new opportunities and investment details."
-        subtitle="Get Early Access"
-      />
       <InvestCta />
     </>
   )

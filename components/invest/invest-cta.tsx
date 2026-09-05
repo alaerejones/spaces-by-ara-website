@@ -4,12 +4,19 @@ import * as React from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
-import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
 export function InvestCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      ;(window as any).gtag("event", eventName, {
+        event_category: "CTA",
+        event_label: "Invest CTA",
+      })
+    }
+  }
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
@@ -20,32 +27,46 @@ export function InvestCta() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-white leading-[115%] mb-6">
-            Ready to invest?
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-white leading-[120%] mb-5">
+            Ready to Invest with Spaces by Ara?
           </h2>
-          <p className="text-md text-white/80 leading-relaxed mb-10">
-            Download our investor brochure to learn more about investment opportunities with Spaces by Ara.
+
+          <p className="text-base md:text-lg text-white/80 leading-relaxed mb-10">
+            Speak with our investment team, explore the right investment model,
+            and download our investor brochure when you're ready.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-  size="lg"
-  className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
-  asChild
->
-  <a href="/documents/investor-brochure.pdf" target="_blank" rel="noopener noreferrer">
-    Download Investor Brochure
-  </a>
-</Button>
-           <Button
-  size="lg"
-  variant="outline"
-  className="border-white/30 text-white hover:bg-white/10 hover:text-white text-base font-medium px-10 py-2 bg-white/5"
-  asChild
->
-  <a href="https://calendar.app.google/h4MZ96LK9L5PWL8E8" target="_blank" rel="noopener noreferrer">
-    Schedule a Call
-  </a>
-</Button>
+              asChild
+              size="lg"
+              className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 text-base font-semibold px-10 py-2"
+            >
+              <Link
+                href="https://wa.link/vb05el"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("invest_cta_whatsapp")}
+              >
+                Invest Now
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white bg-white/10 text-white hover:bg-white hover:text-dark-green text-base font-semibold px-10 py-2"
+            >
+              <Link
+                href="/documents/investor-brochure.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent("invest_cta_brochure")}
+              >
+                Download Brochure
+              </Link>
+            </Button>
           </div>
         </div>
       </div>

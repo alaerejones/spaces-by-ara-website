@@ -8,26 +8,26 @@ import { cn } from "@/lib/utils"
 const structures = [
   {
     icon: Wallet,
-    title: "Invest with Funds",
+    title: "Invest with Capital",
     description:
-      "Invest with funds into a structured income model and earn consistent returns over a defined period. You select an investment amount, and your returns are paid based on a clear structure.",
+      "Participate in Spaces by Ara's residential investment model by investing capital into professionally managed homes built for long term living in Lagos.",
     features: [
-      "Choose an investment amount that fits you",
-      "Earn consistent, structured returns",
-      "Defined investment term and payout model",
-      "Transparent reporting and performance tracking",
+      "Flexible investment entry options",
+      "Professionally managed residential homes",
+      "Clear investment structure and reporting",
+      "Long term value focused model",
     ],
   },
   {
     icon: Building,
-    title: "Invest with Property",
+    title: "Invest with Your Property",
     description:
-      "Invest with your property by placing it into a defined investment term. Your property is used within a structured income model, and you receive steady returns while retaining ownership.",
+      "Place your residential property into Spaces by Ara's managed housing model while retaining ownership and allowing our team to oversee day to day operations.",
     features: [
-      "Retain full ownership of your property",
-      "Fixed investment term with clear return structure",
-      "Property is professionally managed throughout",
-      "Income paid consistently during the period",
+      "Retain ownership of your property",
+      "Professional property management",
+      "Maintenance coordination",
+      "Structured residential management",
     ],
   },
 ]
@@ -36,7 +36,13 @@ export function InvestmentStructures() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-20 lg:py-30 bg-secondary">
+    <section
+  id="investment-options"
+  ref={ref}
+  className="py-20 lg:py-30 bg-secondary"
+>
+
+
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
@@ -44,11 +50,12 @@ export function InvestmentStructures() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-4">
-            Investment options
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-foreground leading-[120%] mb-4">
+            Choose How You Want to Invest
           </h2>
-          <p className="text-md text-muted-foreground max-w-2xl mx-auto">
-            Choose how you want to invest. You can invest with funds or place an existing property under management for structured returns.
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Whether you're investing capital or contributing a residential property, Spaces by Ara offers professionally managed investment pathways built around long term residential living in Lagos.
           </p>
         </div>
 
@@ -67,16 +74,19 @@ export function InvestmentStructures() {
               <div className="w-12 h-12 rounded-xl bg-light-bg dark:bg-olive flex items-center justify-center mb-6">
                 <structure.icon className="h-6 w-6 text-olive dark:text-accent-lime" />
               </div>
+
               <h3 className="text-xl font-semibold text-foreground mb-4">
                 {structure.title}
               </h3>
+
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {structure.description}
               </p>
+
               <ul className="space-y-3 mt-auto">
-                {structure.features.map((feature, idx) => (
+                {structure.features.map((feature) => (
                   <li
-                    key={idx}
+                    key={feature}
                     className="flex items-center gap-3 text-sm text-foreground"
                   >
                     <ArrowRight className="h-4 w-4 text-olive dark:text-accent-lime flex-shrink-0" />

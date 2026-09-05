@@ -8,23 +8,27 @@ import { cn } from "@/lib/utils"
 const benefits = [
   {
     icon: TrendingUp,
-    title: "Growing Demand",
-    description: "Urban professionals in Lagos continue to face increasing challenges with yearly rent structures.",
+    title: "Demand Driven",
+    description:
+      "Lagos continues to see demand for professionally managed homes with monthly rent, creating opportunities in long term residential living.",
   },
   {
     icon: Shield,
-    title: "Professional Management",
-    description: "Spaces by Ara handles all daily operations, tenant management, and property upkeep.",
+    title: "Professionally Managed",
+    description:
+      "Spaces by Ara oversees property operations, maintenance coordination, and resident management to keep homes running smoothly.",
   },
   {
     icon: Users,
-    title: "Consistent Occupancy",
-    description: "Our model focuses on structured residential living designed around monthly income earners.",
+    title: "Resident Focused",
+    description:
+      "Our model is built around working professionals, contractors, consultants, and people relocating within Lagos.",
   },
   {
     icon: BarChart3,
-    title: "Structured Returns",
-    description: "Investors participate through different structures depending on their investment goals.",
+    title: "Flexible Investment Models",
+    description:
+      "Choose an investment structure that matches your level of participation while our team manages the day to day operations.",
   },
 ]
 
@@ -32,7 +36,11 @@ export function WhyInvest() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-20 lg:py-30 bg-background">
+    <section
+      id="investment-models"
+      ref={ref}
+      className="py-20 lg:py-30 bg-background"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
@@ -40,11 +48,12 @@ export function WhyInvest() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-6">
-            Why invest in managed housing.
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-foreground leading-[120%] mb-4">
+            Why Investors Choose Spaces by Ara
           </h2>
-          <p className="text-md text-muted-foreground leading-relaxed">
-            Urban professionals in Lagos continue to face increasing challenges with yearly rent structures. Spaces by Ara addresses this gap by organizing residential living for monthly income earners. This demand creates opportunities for investors to participate in a managed housing model focused on consistent occupancy and professional property management.
+
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            We invest in a part of the market where demand is growing: professionally managed residential homes for long term living. Our role is to help turn that demand into a well managed residential experience while giving investors flexible ways to participate.
           </p>
         </div>
 
@@ -58,15 +67,17 @@ export function WhyInvest() {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               )}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-light-bg dark:bg-olive flex items-center justify-center mb-4">
                 <benefit.icon className="h-6 w-6 text-olive dark:text-accent-lime" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">
+
+              <h3 className="text-xl font-semibold text-foreground mb-3">
                 {benefit.title}
               </h3>
-              <p className="text-muted-foreground text-md leading-relaxed">
+
+              <p className="text-muted-foreground leading-relaxed">
                 {benefit.description}
               </p>
             </div>
