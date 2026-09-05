@@ -8,33 +8,33 @@ import { cn } from "@/lib/utils"
 const partnerTypes = [
   {
     icon: Sparkles,
-    title: "Cleaning companies",
-    description: "Regular cleaning and deep cleaning services for residential properties.",
+    title: "Cleaning Companies",
+    description: "Residential cleaning services that help maintain high living standards.",
   },
   {
     icon: Wrench,
-    title: "Facility maintenance teams",
-    description: "General maintenance and facility upkeep for residential buildings.",
+    title: "Facility Maintenance",
+    description: "Property maintenance teams supporting day to day residential operations.",
   },
   {
     icon: Users,
-    title: "Artisan networks",
-    description: "Skilled tradespeople for various repair and installation work.",
+    title: "Artisan Networks",
+    description: "Skilled professionals for repairs, installations, and finishing work.",
   },
   {
     icon: Zap,
-    title: "Electrical technicians",
-    description: "Licensed electricians for electrical repairs and installations.",
+    title: "Electrical Services",
+    description: "Licensed electricians for safe residential electrical work.",
   },
   {
     icon: Droplets,
-    title: "Plumbing services",
-    description: "Professional plumbers for water and drainage systems.",
+    title: "Plumbing Services",
+    description: "Reliable plumbing teams for water and drainage systems.",
   },
   {
     icon: Shield,
-    title: "Security providers",
-    description: "Security personnel and monitoring services for residential properties.",
+    title: "Security Services",
+    description: "Security providers helping create safe residential environments.",
   },
 ]
 
@@ -42,7 +42,11 @@ export function PartnersWeWorkWith() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
 
   return (
-    <section ref={ref} className="py-20 lg:py-30 bg-background">
+    <section
+      id="partner-types"
+      ref={ref}
+      className="py-20 lg:py-30 bg-background"
+    >
       <div className="container mx-auto px-4 lg:px-8">
         <div
           className={cn(
@@ -50,11 +54,12 @@ export function PartnersWeWorkWith() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-4">
-            Partners we work with.
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-foreground leading-[120%] mb-4">
+            Who We Partner With
           </h2>
-          <p className="text-md text-muted-foreground max-w-2xl mx-auto">
-            We collaborate with a range of service providers to ensure our residential properties are well maintained.
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            We collaborate with service providers who help deliver exceptional residential experiences across Lagos.
           </p>
         </div>
 
@@ -68,14 +73,16 @@ export function PartnersWeWorkWith() {
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-8"
               )}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              style={{ transitionDelay: `${index * 120}ms` }}
             >
               <div className="w-12 h-12 rounded-xl bg-light-bg dark:bg-olive flex items-center justify-center mb-6">
                 <partner.icon className="h-6 w-6 text-olive dark:text-accent-lime" />
               </div>
+
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 {partner.title}
               </h3>
+
               <p className="text-muted-foreground leading-relaxed">
                 {partner.description}
               </p>

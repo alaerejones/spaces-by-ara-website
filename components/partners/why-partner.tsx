@@ -8,18 +8,18 @@ import { cn } from "@/lib/utils"
 const benefits = [
   {
     icon: Briefcase,
-    title: "Consistent Work",
-    description: "Service partners gain access to consistent operational work across managed residential properties.",
+    title: "Ongoing Opportunities",
+    description: "Work across professionally managed residential properties as opportunities become available.",
   },
   {
     icon: CheckCircle,
     title: "Professional Standards",
-    description: "We prioritize reliability, professionalism, and responsiveness in all partnerships.",
+    description: "We value reliability, quality workmanship, and responsive service.",
   },
   {
     icon: Clock,
-    title: "Long-term Relationships",
-    description: "We build lasting partnerships with service providers who demonstrate consistent quality.",
+    title: "Long Term Partnerships",
+    description: "We build lasting relationships with service providers who consistently deliver quality work.",
   },
 ]
 
@@ -35,9 +35,13 @@ export function WhyPartner() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-foreground leading-[115%] mb-4">
-            Why partner with us.
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-foreground leading-[120%] mb-4">
+            Why Businesses Partner with Spaces by Ara
           </h2>
+
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            We work with businesses that share our commitment to delivering high quality residential experiences.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -55,9 +59,11 @@ export function WhyPartner() {
               <div className="w-12 h-12 rounded-full bg-olive dark:bg-accent-lime flex items-center justify-center mx-auto mb-6">
                 <benefit.icon className="h-6 w-6 text-white dark:text-dark-green" />
               </div>
+
               <h3 className="text-xl font-semibold text-foreground mb-3">
                 {benefit.title}
               </h3>
+
               <p className="text-muted-foreground leading-relaxed">
                 {benefit.description}
               </p>

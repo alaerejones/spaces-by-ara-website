@@ -1,14 +1,22 @@
 "use client"
 
 import * as React from "react"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useInView } from "@/hooks/use-in-view"
-import { useEnquiryModal } from "@/components/enquiry-modal-context"
 import { cn } from "@/lib/utils"
 
 export function PartnersCta() {
   const { ref, isInView } = useInView<HTMLElement>({ threshold: 0.1 })
-  const { openEnquiryModal } = useEnquiryModal()
+
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      ;(window as any).gtag("event", eventName, {
+        event_category: "CTA",
+        event_label: "Partners CTA",
+      })
+    }
+  }
 
   return (
     <section ref={ref} className="py-20 lg:py-30 bg-dark-green">
@@ -19,22 +27,27 @@ export function PartnersCta() {
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           )}
         >
-          <h2 className="text-[25px] md:text-[25px] lg:text-[33px] font-bold text-white leading-[115%] mb-6">
-            Ready to partner with us?
+          <h2 className="text-[21px] md:text-[28px] lg:text-[36px] font-bold text-white leading-[120%] mb-5">
+            Ready to Become a Spaces by Ara Partner?
           </h2>
-          <p className="text-md text-white/80 leading-relaxed mb-10">
-            If you provide professional services and want to work with Spaces by Ara, we would like to hear from you.
+
+          <p className="text-base md:text-lg text-white/80 leading-relaxed mb-10">
+            If your business delivers quality services and wants to work with professionally managed residential properties across Lagos, we'd love to hear from you.
           </p>
+
           <Button
-            onClick={() =>
-              openEnquiryModal({
-                enquiryType: "Partnership",
-              })
-            }
+            asChild
             size="lg"
-            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 btn-glow text-base font-medium px-10 py-2"
+            className="bg-accent-lime text-dark-green hover:bg-accent-lime/90 text-base font-semibold px-10 py-2"
           >
-            Partner With Us
+            <Link
+              href="https://wa.link/tvfwhd"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("partners_cta_whatsapp")}
+            >
+              Partner With Us
+            </Link>
           </Button>
         </div>
       </div>
