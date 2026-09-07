@@ -109,12 +109,10 @@ export function Header() {
               className="bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
             >
               <Link
-                href="https://wa.link/hv3y8c"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("header_make_enquiry_click")}
+                href="/contact"
+                onClick={() => trackEvent("header_contact_click")}
               >
-                Get Started
+                Contact Us
               </Link>
             </Button>
           </div>
@@ -173,12 +171,10 @@ export function Header() {
               className="w-full mt-2 bg-olive text-white hover:bg-dark-green btn-glow dark:bg-accent-lime dark:text-dark-green dark:hover:bg-accent-lime/90"
             >
               <Link
-                href="https://wa.link/hv3y8c"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("header_make_enquiry_click")}
+                href="/contact"
+                onClick={() => trackEvent("header_contact_click")}
               >
-                Get Started
+                Contact Us
               </Link>
             </Button>
           </div>

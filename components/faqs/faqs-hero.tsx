@@ -69,20 +69,15 @@ export function FaqsHero() {
             </Button>
 
             <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white bg-white/10 text-white hover:bg-white hover:text-dark-green text-base font-semibold px-7 py-2"
-            >
-              <Link
-                href="https://wa.link/hv3y8c"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackEvent("faqs_whatsapp")}
-              >
-                Start a Conversation
-              </Link>
-            </Button>
+  asChild
+  size="lg"
+  variant="outline"
+  className="border-white bg-white/10 text-white hover:bg-white hover:text-dark-green text-base font-semibold px-7 py-2"
+>
+  <Link href="/contact" onClick={() => trackEvent("faqs_contact")}>
+    Contact Us
+  </Link>
+</Button>
           </div>
         </div>
       </div>
