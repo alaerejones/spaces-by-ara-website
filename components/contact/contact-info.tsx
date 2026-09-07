@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 const contactDetails = [
   {
     icon: Phone,
-    label: "WhatsApp",
+    label: "Call or Message",
     value: "+234 805 809 2401",
     href: "https://wa.link/hv3y8c",
     type: "link",
@@ -54,12 +54,13 @@ export function ContactInfo() {
 
   return (
     <div
-      ref={ref}
-      className={cn(
-        "transition-all duration-700",
-        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      )}
-    >
+  id="contact-info"
+  ref={ref}
+  className={cn(
+    "transition-all duration-700",
+    isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+  )}
+>
       <div className="space-y-5">
         {contactDetails.map((detail) => {
           const Icon = detail.icon
@@ -80,7 +81,8 @@ export function ContactInfo() {
                   {detail.type === "link" ? (
                     <Link
                       href={detail.href!}
-                      target={detail.label === "WhatsApp" ? "_blank" : undefined}
+                      target={detail.label === "Call or Message" ? "_blank" : undefined}
+rel={detail.label === "Call or Message" ? "noopener noreferrer" : undefined}
                       rel={detail.label === "WhatsApp" ? "noopener noreferrer" : undefined}
                       className="font-semibold hover:text-olive dark:hover:text-accent-lime transition-colors break-all"
                     >
