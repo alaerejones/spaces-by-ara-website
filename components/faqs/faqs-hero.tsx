@@ -80,7 +80,7 @@ export function FaqsHero() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("faqs_whatsapp")}
               >
-                Ask Us Direct
+                Start a Conversation
               </Link>
             </Button>
           </div>

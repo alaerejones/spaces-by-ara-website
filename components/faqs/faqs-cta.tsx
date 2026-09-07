@@ -47,7 +47,7 @@ export function FaqsCta() {
                 rel="noopener noreferrer"
                 onClick={() => trackEvent("faqs_cta_whatsapp")}
               >
-                Chat With Us
+                Get Started
               </Link>
             </Button>
 
